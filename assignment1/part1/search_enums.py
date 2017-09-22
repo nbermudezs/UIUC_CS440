@@ -4,6 +4,7 @@ class Action(Enum):
     GO_DOWN = 2
     GO_LEFT = 3
     GO_RIGHT = 4
+    EAT = 5
 
 class HeuristicMethod(Enum):
     MANHATTAN = 1
