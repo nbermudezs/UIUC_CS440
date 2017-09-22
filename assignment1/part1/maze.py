@@ -92,11 +92,11 @@ class MazeSolver:
         return path_cost
 
     def bfs(self):
-        self.frontier = LifoQueue()
+        self.frontier = Queue()
         return self.tree_search(lambda current_node, children: children)
 
     def dfs(self):
-        self.frontier = Queue()
+        self.frontier = LifoQueue()
         return self.tree_search(lambda current_node, children: children)
 
     def a_star(self):
