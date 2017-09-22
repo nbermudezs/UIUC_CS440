@@ -1,10 +1,10 @@
 from __future__ import print_function
 from search_enums import *
-from Queue import PriorityQueue
+from queue import PriorityQueue
 
 import copy
+import functools
 import math
-import numpy as np
 
 INITIAL_POSITION_INDICATOR = 'P'
 FOOD_PELLET = '.'
@@ -26,7 +26,6 @@ class PacmanProblemState:
         self.position = position
         self.food_positions = food_positions
         self.has_food = position in food_positions
-        # for discarding from the frontier if a better one is evaluated.
         self.priority = 0
 
     def __eq__(self, item):
@@ -39,16 +38,23 @@ class PacmanProblemState:
                 self.has_food != item.has_food or \
                 self.food_positions != item.food_positions
 
+    def __lt__(self, item):
+        return len(self.food_positions) < len(item.food_positions)
+
     def __cmp__(self, item):
-        if self.has_food and not item.has_food:
-            return -1
-        elif not self.has_food and item.has_food:
-            return 1
+        cmp = int.__cmp__(len(self.food_positions), len(item.food_positions))
+        if cmp == 0:
+            if self.has_food and not item.has_food:
+                return -1
+            elif not self.has_food and item.has_food:
+                return 1
+            else:
+                return 0
         else:
-            return int.__cmp__(len(self.food_positions), len(item.food_positions))
+            return cmp
 
     def __hash__(self):
-        return hash((self.position, self.has_food, len(self.food_positions)))
+        return hash((self.position, len(self.food_positions)))
 
     def __repr__(self):
         return '[ pos = ' + repr(self.position) + ' food = ' + repr(len(self.food_positions)) + ' food = ' + repr(self.has_food) +' ]'
@@ -56,35 +62,42 @@ class PacmanProblemState:
     def go_up(self):
         position = self.position
         new_position = (position[ 0 ] - 1, position[ 1 ])
-        return PacmanProblemState(new_position, self.food_positions)
+        food_positions = self.food_positions
+        if new_position in self.food_positions:
+            food_positions = self.food_positions.copy()
+            food_positions.remove(new_position)
+        return PacmanProblemState(new_position, food_positions)
 
     def go_down(self):
         position = self.position
         new_position = (position[ 0 ] + 1, position[ 1 ])
-        return PacmanProblemState(new_position, self.food_positions)
+        food_positions = self.food_positions
+        if new_position in self.food_positions:
+            food_positions = self.food_positions.copy()
+            food_positions.remove(new_position)
+        return PacmanProblemState(new_position, food_positions)
 
     def go_right(self):
         position = self.position
         new_position = (position[ 0 ], position[ 1 ] + 1)
-        return PacmanProblemState(new_position, self.food_positions)
+        food_positions = self.food_positions
+        if new_position in self.food_positions:
+            food_positions = self.food_positions.copy()
+            food_positions.remove(new_position)
+        return PacmanProblemState(new_position, food_positions)
 
     def go_left(self):
         position = self.position
         new_position = (position[ 0 ], position[ 1 ] - 1)
-        return PacmanProblemState(new_position, self.food_positions)
-
-    def eat(self):
-        if self.has_food:
+        food_positions = self.food_positions
+        if new_position in self.food_positions:
             food_positions = self.food_positions.copy()
-            food_positions.remove(self.position)
-            if len(food_positions) < 10:
-                print('ATE at', self.position, len(food_positions), 'remaining')
-            return PacmanProblemState(self.position, food_positions)
-        else:
-            return self
+            food_positions.remove(new_position)
+        return PacmanProblemState(new_position, food_positions)
 
 class Heuristic:
     @staticmethod
+    @functools.lru_cache(maxsize=1024)
     def manhattan_distance(point_a, point_b):
         return math.fabs(point_a[ 0 ] - point_b[ 0 ]) + math.fabs(point_a[ 1 ] - point_b[ 1 ])
 
@@ -175,6 +188,9 @@ class Heuristic:
 
     @staticmethod
     def minimum_spanning_tree_perimeter(initial_position, original_vertices):
+        if len(original_vertices) == 0:
+            return 0
+
         mst = Heuristic.minimum_spanning_tree(initial_position, original_vertices)
         distance = 0
         for vertex in mst:
@@ -185,13 +201,12 @@ class Heuristic:
 class PacmanProblem:
     def __init__(self):
         self.initial_state = 0
+        distances_memory = {}
+        msts_memory = {}
 
     def actions(self, state):
         actions = []
         position = state.position
-
-        if state.has_food:
-            return [ Action.EAT ]
 
         right_cell = self.maze[ position[ 0 ] ][ position[ 1 ] + 1 ]
         left_cell = self.maze[ position[ 0 ] ][ position[ 1 ] - 1 ]
@@ -254,15 +269,21 @@ class PacmanProblem:
         self.maze_copy = copy.deepcopy(self.maze)
 
         self.food_positions = set([
-            (pos / column_count, pos % column_count)
+            (pos // column_count, pos % column_count)
             for pos
             in list(find_all_occurrences(FOOD_PELLET, text.replace('\n', '')))
         ])
+        self.food_order = {}
+        positions = self.food_positions.copy()
+        while len(positions):
+            first = min(positions)
+            self.food_order[ first ] = 0
+            positions.remove(first)
 
         self.initialize_distances_memory()
 
         absolute_position = text.replace('\n', '').index(INITIAL_POSITION_INDICATOR)
-        initial_position = (absolute_position / column_count, absolute_position % column_count)
+        initial_position = (absolute_position // column_count, absolute_position % column_count)
         self.initial_state =  PacmanProblemState(initial_position, self.food_positions)
 
     def result(self, state, action):
@@ -274,16 +295,13 @@ class PacmanProblem:
             return state.go_right()
         elif action == Action.GO_LEFT:
             return state.go_left()
-        elif action == Action.EAT:
-            return state.eat()
         else:
             return state
 
     def step_cost(self, state, action):
-        if action == Action.EAT:
-            return 0
         return 1
 
+    @functools.lru_cache(maxsize=1024)
     def estimated_cost(self, state):
         return Heuristic.minimum_spanning_tree_perimeter(state.position, state.food_positions)
 
@@ -310,13 +328,13 @@ if __name__ == '__main__':
     # I'll use this for tiebreaking
     no_food_state = PacmanProblemState((0,0))
     food_state = PacmanProblemState((0, 0), set([ (0,0), (1,1) ]))
-    print('food is more than important than no food:', food_state.__cmp__(no_food_state) == -1)
+    print('food is more than important than no food:', no_food_state < food_state)
 
     other_food_state = PacmanProblemState((0, 0), set([ (0,0), (1,1), (1,2) ]))
-    print('less food positions better than more food positions', food_state.__cmp__(other_food_state) == -1)
+    print('less food positions better than more food positions', food_state > other_food_state)
     print('------------------------')
 
-    from Queue import PriorityQueue
+    from queue import PriorityQueue
     queue = PriorityQueue()
     queue.put((1, food_state))
     print('inserted prio 1 with food')

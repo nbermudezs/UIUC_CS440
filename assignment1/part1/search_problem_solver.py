@@ -1,12 +1,13 @@
 from __future__ import print_function
 
-from Queue import *
+from queue import *
 from search_enums import *
 
 import copy
 import math
 
 priority_matrix = {}
+evaluation_memory = {}
 
 class Node:
     def __init__(self, state, parent, action, path_cost):
@@ -14,12 +15,18 @@ class Node:
         self.parent = parent
         self.action = action
         self.path_cost = path_cost
+        self.depth = 0
+        if parent:
+            self.depth = parent.depth + 1
 
     def __eq__(self, item):
-        return item != None and self.state == item.state
+        return type(item) == Node and self.state == item.state
 
     def __ne__(self, item):
-        return item == None or self.state != item.state
+        return type(item) != Node or self.state != item.state
+
+    def __lt__(self, item):
+        return self.state < item.state
 
     def __cmp__(self, item):
         cmp = self.state.__cmp__(item.state)
@@ -28,7 +35,7 @@ class Node:
         return cmp
 
     def __hash__(self):
-        return hash(hash(self.state) + hash(self.action) + hash(self.path_cost))
+        return hash(self.state)
 
     def __repr__(self):
         result = ''
@@ -50,6 +57,7 @@ class SearchResult:
 class SearchProblemSolver:
     def __init__(self, strategy):
         self.strategy = strategy
+        priority_matrix = {}
 
     def initialize_frontier(self):
         if self.strategy == SearchStrategy.BFS:
@@ -69,15 +77,17 @@ class SearchProblemSolver:
         return Node(state, parent, action, path_cost)
 
     def evaluate(self, problem, node):
+        h = problem.estimated_cost
         if self.strategy == SearchStrategy.GBFS:
-            return problem.estimated_cost(node.state)
+            return h(node.state)
         elif self.strategy == SearchStrategy.A_STAR:
-            return node.path_cost + problem.estimated_cost(node.state)
+            if node.state not in evaluation_memory:
+                evaluation_memory[ node.state ] = h(node.state)
+            return node.path_cost + evaluation_memory[ node.state ]
         else:
             return 0
 
     def graph_search(self, problem):
-        goal_node = None
         node = Node(problem.initial_state, None, None, 0)
         if problem.goal_test(node.state):
             return SearchResult(0, node)
@@ -89,43 +99,37 @@ class SearchProblemSolver:
 
         explored = set()
         frontier_set = set()
+        frontier_set.add(node)
 
-        while not goal_node:
-            if frontier.empty():
-                return SearchResult()
-
+        while not frontier.empty():
             _, node = frontier.get()
+            frontier_set.remove(node)
 
-            # START TEST:
-            # previous_priority = priority_matrix.get(node.state, float('inf'))
-            # if node.state.priority > previous_priority:
-            #     continue
-            # END TEST
+            if problem.goal_test(node.state):
+                return SearchResult(len(explored), node)
+
+            previous_priority = priority_matrix.get(node.state, float('inf'))
+            if node.state.priority > previous_priority:
+                continue
 
             explored.add(node.state)
             frontier_set.add(node)
-
             for action in problem.actions(node.state):
                 child = self.child_node(problem, node, action)
+                child_already_in_frontier = child in frontier_set
 
-                # START TEST:
-                # if problem.goal_test(child.state):
-                #     goal_node = child
-                #     break
-                # priority = self.evaluate(problem, child)
-                # frontier.put((priority, child))
-                # child.priority = priority
-                # priority_matrix[ child ] = priority
-                # END TEST
-
-                if child not in frontier_set and child.state not in explored:
-                    if problem.goal_test(child.state):
-                        goal_node = child
-                        break
+                if not child_already_in_frontier and child.state not in explored:
                     priority = self.evaluate(problem, child)
                     frontier.put((priority, child))
                     frontier_set.add(child)
-        return SearchResult(len(explored), goal_node)
+                elif child_already_in_frontier:
+                    priority = self.evaluate(problem, child)
+                    previous_priority = priority_matrix.get(child, float('inf'))
+                    if priority < previous_priority:
+                        priority_matrix[ child ] = priority
+                        frontier.put((priority, child))
+
+        return SearchResult()
 
     def solve(self, problem):
         return self.graph_search(problem)
