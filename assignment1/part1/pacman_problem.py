@@ -1,6 +1,21 @@
 from __future__ import print_function
+from bitarray import bitarray
 from search_enums import *
-from queue import PriorityQueue
+
+import heapq
+
+class PriorityQueue:
+    def __init__(self):
+        self.items = []
+
+    def put(self, item):
+        heapq.heappush(self.items, item)
+
+    def get(self):
+        return heapq.heappop(self.items)
+
+    def empty(self):
+        return len(self.items) == 0
 
 import copy
 import functools
@@ -22,82 +37,66 @@ distances_memory = {}
 msts_memory = {}
 
 class PacmanProblemState:
-    def __init__(self, position, food_positions = set()):
+    def __init__(self, position, food_state, problem):
+        self.problem = problem
         self.position = position
-        self.food_positions = food_positions
-        self.has_food = position in food_positions
+        self.food_state = food_state
         self.priority = 0
 
     def __eq__(self, item):
         return self.position == item.position and \
-                self.has_food == item.has_food and \
-                self.food_positions == item.food_positions
+                self.food_state == item.food_state
 
     def __ne__(self, item):
         return self.position != item.position or \
-                self.has_food != item.has_food or \
-                self.food_positions != item.food_positions
+                self.food_state != item.food_state
 
     def __lt__(self, item):
-        return len(self.food_positions) < len(item.food_positions)
-
-    def __cmp__(self, item):
-        cmp = int.__cmp__(len(self.food_positions), len(item.food_positions))
-        if cmp == 0:
-            if self.has_food and not item.has_food:
-                return -1
-            elif not self.has_food and item.has_food:
-                return 1
-            else:
-                return 0
-        else:
-            return cmp
+        if self.food_state.count(0) == item.food_state.count(0):
+            return self.position < item.position
+        return self.food_state.count(0) < item.food_state.count(0)
 
     def __hash__(self):
-        return hash((self.position, len(self.food_positions)))
+        return hash((self.position, self.food_state.to01()))
 
     def __repr__(self):
-        return '[ pos = ' + repr(self.position) + ' food = ' + repr(len(self.food_positions)) + ' food = ' + repr(self.has_food) +' ]'
+        return '(' + str(self.position) + ':' + self.food_state.to01() + ')'
+
+    def __str__(self):
+        return '[ pos = ' + repr(self.position) + '\tremaining = ' + repr(self.food_state.count(0)) + '\tfood state = ' + repr(self.food_state) +' ]'
 
     def go_up(self):
         position = self.position
         new_position = (position[ 0 ] - 1, position[ 1 ])
-        food_positions = self.food_positions
-        if new_position in self.food_positions:
-            food_positions = self.food_positions.copy()
-            food_positions.remove(new_position)
-        return PacmanProblemState(new_position, food_positions)
+        return self.move_to(new_position)
 
     def go_down(self):
         position = self.position
         new_position = (position[ 0 ] + 1, position[ 1 ])
-        food_positions = self.food_positions
-        if new_position in self.food_positions:
-            food_positions = self.food_positions.copy()
-            food_positions.remove(new_position)
-        return PacmanProblemState(new_position, food_positions)
+        return self.move_to(new_position)
 
     def go_right(self):
         position = self.position
         new_position = (position[ 0 ], position[ 1 ] + 1)
-        food_positions = self.food_positions
-        if new_position in self.food_positions:
-            food_positions = self.food_positions.copy()
-            food_positions.remove(new_position)
-        return PacmanProblemState(new_position, food_positions)
+        return self.move_to(new_position)
 
     def go_left(self):
         position = self.position
         new_position = (position[ 0 ], position[ 1 ] - 1)
-        food_positions = self.food_positions
-        if new_position in self.food_positions:
-            food_positions = self.food_positions.copy()
-            food_positions.remove(new_position)
-        return PacmanProblemState(new_position, food_positions)
+        return self.move_to(new_position)
+
+    def move_to(self, new_position):
+        index = self.problem.food_order.get(new_position, -1)
+        food_state = self.food_state
+        if index > -1 and not food_state[ index ]:
+            food_state = bitarray(self.problem.food_count)
+            food_state.setall(0)
+            food_state[ index ] = 1
+            food_state = self.food_state | food_state
+        return PacmanProblemState(new_position, food_state, self.problem)
 
 class Heuristic:
     @staticmethod
-    @functools.lru_cache(maxsize=1024)
     def manhattan_distance(point_a, point_b):
         return math.fabs(point_a[ 0 ] - point_b[ 0 ]) + math.fabs(point_a[ 1 ] - point_b[ 1 ])
 
@@ -139,7 +138,7 @@ class Heuristic:
         return distance
 
     @staticmethod
-    def minimum_spanning_tree(initial_position, vertices):
+    def minimum_spanning_tree(initial_position, vertices, msts_key):
         # for vertex_a in vertices:
         #     row = distances_memory[ vertex_a ]
         #     distances_memory[ vertex_a ][ initial_position ] = Heuristic.manhattan_distance(vertex_a, initial_position)
@@ -147,7 +146,6 @@ class Heuristic:
         #         distances_memory[ initial_position ] = {}
         #     distances_memory[ initial_position ][ vertex_a ] = distances_memory[ vertex_a ][ initial_position ]
 
-        msts_key = repr(vertices)
         if msts_key in msts_memory:
             return msts_memory[ msts_key ]
 
@@ -187,20 +185,25 @@ class Heuristic:
 
 
     @staticmethod
-    def minimum_spanning_tree_perimeter(initial_position, original_vertices):
+    def minimum_spanning_tree_perimeter(initial_position, original_vertices, key):
         if len(original_vertices) == 0:
             return 0
 
-        mst = Heuristic.minimum_spanning_tree(initial_position, original_vertices)
+        mst = Heuristic.minimum_spanning_tree(initial_position, original_vertices, key.to01())
         distance = 0
         for vertex in mst:
             distance += distances_memory[ mst[ vertex ] ][ vertex ]
         return distance + Heuristic.distance_to_closest(initial_position, original_vertices)
 
+    @staticmethod
+    def relaxed_christofides(initial_position, original_vertices, key):
+        return 2 * Heuristic.minimum_spanning_tree_perimeter(initial_position, original_vertices, key)
 
 class PacmanProblem:
-    def __init__(self):
+    def __init__(self, heuristic = Heuristic.minimum_spanning_tree_perimeter):
         self.initial_state = 0
+        self.heuristic = heuristic
+
         distances_memory = {}
         msts_memory = {}
 
@@ -240,7 +243,7 @@ class PacmanProblem:
         return actions
 
     def goal_test(self, state):
-        return len(state.food_positions) == 0
+        return state.food_state.count(0) == 0
 
     def initialize_distances_memory(self):
         vertices = self.food_positions
@@ -268,23 +271,26 @@ class PacmanProblem:
         # for printing
         self.maze_copy = copy.deepcopy(self.maze)
 
-        self.food_positions = set([
+        self.food_positions = [
             (pos // column_count, pos % column_count)
             for pos
             in list(find_all_occurrences(FOOD_PELLET, text.replace('\n', '')))
-        ])
+        ]
+        self.food_count = len(self.food_positions)
         self.food_order = {}
-        positions = self.food_positions.copy()
+        positions = self.food_positions[:]
         while len(positions):
             first = min(positions)
-            self.food_order[ first ] = 0
+            self.food_order[ first ] = len(self.food_order)
             positions.remove(first)
+        food_state = bitarray(self.food_count)
+        food_state.setall(0)
 
         self.initialize_distances_memory()
 
         absolute_position = text.replace('\n', '').index(INITIAL_POSITION_INDICATOR)
         initial_position = (absolute_position // column_count, absolute_position % column_count)
-        self.initial_state =  PacmanProblemState(initial_position, self.food_positions)
+        self.initial_state =  PacmanProblemState(initial_position, food_state, self)
 
     def result(self, state, action):
         if action == Action.GO_UP:
@@ -303,7 +309,11 @@ class PacmanProblem:
 
     @functools.lru_cache(maxsize=1024)
     def estimated_cost(self, state):
-        return Heuristic.minimum_spanning_tree_perimeter(state.position, state.food_positions)
+        vertices = set()
+        for i, eaten in enumerate(state.food_state):
+            if not eaten:
+                vertices.add(state.problem.food_positions[ i ])
+        return self.heuristic(state.position, vertices, state.food_state)
 
     def print_solution_path(self, node):
         if node == None:
@@ -323,27 +333,3 @@ class PacmanProblem:
                 else:
                     print(TerminalColor.DEFAULT.value + char, end='')
             print('')
-
-if __name__ == '__main__':
-    # I'll use this for tiebreaking
-    no_food_state = PacmanProblemState((0,0))
-    food_state = PacmanProblemState((0, 0), set([ (0,0), (1,1) ]))
-    print('food is more than important than no food:', no_food_state < food_state)
-
-    other_food_state = PacmanProblemState((0, 0), set([ (0,0), (1,1), (1,2) ]))
-    print('less food positions better than more food positions', food_state > other_food_state)
-    print('------------------------')
-
-    from queue import PriorityQueue
-    queue = PriorityQueue()
-    queue.put((1, food_state))
-    print('inserted prio 1 with food')
-    queue.put((0, other_food_state))
-    print('inserted prio 0 w food')
-    queue.put((1, no_food_state))
-    print('inserted prio 1 w/o food')
-    queue.put((99, food_state))
-
-    print('other_food_state should go first', queue.get() == (0, other_food_state))
-    print('food_state should go next', queue.get() == (1, food_state))
-    print('no_food_state should go last', queue.get() == (1, no_food_state))
