@@ -319,16 +319,33 @@ class PacmanProblem:
         if node == None:
             return
         current_node = node
+        indicator = 49 # 1 in ASCII
+        reversed_list = []
         while current_node.parent != None:
-            position = current_node.state.position
-            self.maze_copy[ position[ 0 ] ][ position[ 1 ] ] = SELECTED_PATH
+            reversed_list.append(current_node)
             current_node = current_node.parent
+
+        reversed_list = reversed(reversed_list)
+        for node in reversed_list:
+            position = node.state.position
+            if node.parent and node.state.food_state != node.parent.state.food_state:
+                char = chr(indicator)
+                indicator += 1
+                if indicator == 58:
+                    indicator = 65
+                elif indicator == 123:
+                    indicator = 65
+            else:
+                char = SELECTED_PATH
+            current = self.maze_copy[ position[ 0 ] ][ position[ 1 ] ]
+            if current == PATH or current == FOOD_PELLET:
+                self.maze_copy[ position[ 0 ] ][ position[ 1 ] ] = char
 
         for line in self.maze_copy:
             for char in line:
                 if (char == SELECTED_PATH):
                     print(TerminalColor.RED.value + char, end='')
-                elif char not in [ WALL ]:
+                elif char != WALL and char != INITIAL_POSITION_INDICATOR:
                     print(TerminalColor.BLUE.value + char, end='')
                 else:
                     print(TerminalColor.DEFAULT.value + char, end='')
