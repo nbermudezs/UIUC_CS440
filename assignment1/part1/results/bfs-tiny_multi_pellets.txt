@@ -1,0 +1,106 @@
+5026637 function calls (4794178 primitive calls) in 3.319 seconds
+
+Ordered by: cumulative time
+
+ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+1    0.587    0.587    3.319    3.319 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:110(graph_search)
+123457    0.215    0.000    0.799    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:94(child_node)
+517870    0.302    0.000    0.551    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:59(__hash__)
+123457    0.132    0.000    0.478    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:295(result)
+232459    0.079    0.000    0.436    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:54(__hash__)
+750329/517870    0.195    0.000    0.407    0.000 {built-in method builtins.hash}
+56050    0.118    0.000    0.346    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/queue.py:115(put)
+52953    0.115    0.000    0.315    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/queue.py:147(get)
+123457    0.172    0.000    0.266    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:88(move_to)
+109003    0.159    0.000    0.226    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/threading.py:334(notify)
+109002    0.063    0.000    0.220    0.000 {method 'add' of 'set' objects}
+52952    0.146    0.000    0.161    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:210(actions)
+517870    0.156    0.000    0.156    0.000 {method 'to01' of 'bitarray._bitarray' objects}
+176409    0.068    0.000    0.130    0.000 {method 'get' of 'dict' objects}
+52952    0.031    0.000    0.124    0.000 {method 'remove' of 'set' objects}
+123458    0.091    0.000    0.091    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:28(__init__)
+31797    0.020    0.000    0.089    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:68(go_up)
+31230    0.020    0.000    0.086    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:73(go_down)
+30215    0.020    0.000    0.085    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:78(go_right)
+30215    0.020    0.000    0.085    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:83(go_left)
+52953    0.054    0.000    0.082    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/queue.py:90(empty)
+109003    0.041    0.000    0.068    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/threading.py:239(__enter__)
+109003    0.038    0.000    0.067    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/threading.py:254(_is_owned)
+123457    0.062    0.000    0.062    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:40(__init__)
+66423    0.059    0.000    0.059    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:99(evaluate)
+109003    0.038    0.000    0.055    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/threading.py:242(__exit__)
+105906    0.037    0.000    0.053    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/queue.py:202(_qsize)
+77782    0.049    0.000    0.049    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:46(__eq__)
+52954    0.031    0.000    0.047    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:245(goal_test)
+56050    0.022    0.000    0.030    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/queue.py:206(_put)
+109003    0.029    0.000    0.029    0.000 {method 'acquire' of '_thread.lock' objects}
+109003    0.027    0.000    0.027    0.000 {method '__enter__' of '_thread.lock' objects}
+52953    0.019    0.000    0.027    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/queue.py:210(_get)
+109003    0.017    0.000    0.017    0.000 {method '__exit__' of '_thread.lock' objects}
+10374    0.010    0.000    0.016    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:37(__eq__)
+52954    0.016    0.000    0.016    0.000 {method 'count' of 'bitarray._bitarray' objects}
+105907    0.015    0.000    0.015    0.000 {built-in method builtins.len}
+123457    0.015    0.000    0.015    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:307(step_cost)
+123457    0.015    0.000    0.015    0.000 {method 'append' of 'list' objects}
+56050    0.008    0.000    0.008    0.000 {method 'append' of 'collections.deque' objects}
+52953    0.008    0.000    0.008    0.000 {method 'popleft' of 'collections.deque' objects}
+13843    0.002    0.000    0.002    0.000 {method 'setall' of 'bitarray._bitarray' objects}
+1    0.000    0.000    0.000    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:82(initialize_frontier)
+1    0.000    0.000    0.000    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/queue.py:27(__init__)
+3    0.000    0.000    0.000    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/threading.py:215(__init__)
+1    0.000    0.000    0.000    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:72(__init__)
+1    0.000    0.000    0.000    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/queue.py:199(_init)
+1    0.000    0.000    0.000    0.000 {built-in method _thread.allocate_lock}
+1    0.000    0.000    0.000    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:40(__ne__)
+1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+
+
+SearchStrategy.BFS expanded 52952 nodes and a path cost 36
+%%%%%%%%%%
+%...%....%
+%.%.%.%%.%
+%.%....%.%
+%..%P%  .%
+%.  .....%
+%.%%%% %.%
+%...   %.%
+%%%%%%%%%%
+Initial state 		is [ pos = (4, 4)	remaining = 12	food state = bitarray('000000000000') ]
+Took Action.GO_DOWN	to [ pos = (5, 4)	remaining = 11	food state = bitarray('000000010000') ] => C = 1
+Took Action.GO_RIGHT	to [ pos = (5, 5)	remaining = 11	food state = bitarray('000000010000') ] => C = 2
+Took Action.GO_RIGHT	to [ pos = (5, 6)	remaining = 11	food state = bitarray('000000010000') ] => C = 3
+Took Action.GO_RIGHT	to [ pos = (5, 7)	remaining = 10	food state = bitarray('000000011000') ] => C = 4
+Took Action.GO_RIGHT	to [ pos = (5, 8)	remaining = 10	food state = bitarray('000000011000') ] => C = 5
+Took Action.GO_DOWN	to [ pos = (6, 8)	remaining = 10	food state = bitarray('000000011000') ] => C = 6
+Took Action.GO_DOWN	to [ pos = (7, 8)	remaining = 9	food state = bitarray('000000011001') ] => C = 7
+Took Action.GO_UP	to [ pos = (6, 8)	remaining = 9	food state = bitarray('000000011001') ] => C = 8
+Took Action.GO_UP	to [ pos = (5, 8)	remaining = 9	food state = bitarray('000000011001') ] => C = 9
+Took Action.GO_UP	to [ pos = (4, 8)	remaining = 9	food state = bitarray('000000011001') ] => C = 10
+Took Action.GO_UP	to [ pos = (3, 8)	remaining = 8	food state = bitarray('000010011001') ] => C = 11
+Took Action.GO_UP	to [ pos = (2, 8)	remaining = 8	food state = bitarray('000010011001') ] => C = 12
+Took Action.GO_UP	to [ pos = (1, 8)	remaining = 8	food state = bitarray('000010011001') ] => C = 13
+Took Action.GO_LEFT	to [ pos = (1, 7)	remaining = 8	food state = bitarray('000010011001') ] => C = 14
+Took Action.GO_LEFT	to [ pos = (1, 6)	remaining = 7	food state = bitarray('010010011001') ] => C = 15
+Took Action.GO_LEFT	to [ pos = (1, 5)	remaining = 7	food state = bitarray('010010011001') ] => C = 16
+Took Action.GO_DOWN	to [ pos = (2, 5)	remaining = 7	food state = bitarray('010010011001') ] => C = 17
+Took Action.GO_DOWN	to [ pos = (3, 5)	remaining = 7	food state = bitarray('010010011001') ] => C = 18
+Took Action.GO_RIGHT	to [ pos = (3, 6)	remaining = 6	food state = bitarray('010110011001') ] => C = 19
+Took Action.GO_LEFT	to [ pos = (3, 5)	remaining = 6	food state = bitarray('010110011001') ] => C = 20
+Took Action.GO_LEFT	to [ pos = (3, 4)	remaining = 6	food state = bitarray('010110011001') ] => C = 21
+Took Action.GO_LEFT	to [ pos = (3, 3)	remaining = 6	food state = bitarray('010110011001') ] => C = 22
+Took Action.GO_UP	to [ pos = (2, 3)	remaining = 5	food state = bitarray('011110011001') ] => C = 23
+Took Action.GO_UP	to [ pos = (1, 3)	remaining = 5	food state = bitarray('011110011001') ] => C = 24
+Took Action.GO_LEFT	to [ pos = (1, 2)	remaining = 5	food state = bitarray('011110011001') ] => C = 25
+Took Action.GO_LEFT	to [ pos = (1, 1)	remaining = 4	food state = bitarray('111110011001') ] => C = 26
+Took Action.GO_DOWN	to [ pos = (2, 1)	remaining = 4	food state = bitarray('111110011001') ] => C = 27
+Took Action.GO_DOWN	to [ pos = (3, 1)	remaining = 4	food state = bitarray('111110011001') ] => C = 28
+Took Action.GO_DOWN	to [ pos = (4, 1)	remaining = 4	food state = bitarray('111110011001') ] => C = 29
+Took Action.GO_RIGHT	to [ pos = (4, 2)	remaining = 3	food state = bitarray('111111011001') ] => C = 30
+Took Action.GO_LEFT	to [ pos = (4, 1)	remaining = 3	food state = bitarray('111111011001') ] => C = 31
+Took Action.GO_DOWN	to [ pos = (5, 1)	remaining = 2	food state = bitarray('111111111001') ] => C = 32
+Took Action.GO_DOWN	to [ pos = (6, 1)	remaining = 2	food state = bitarray('111111111001') ] => C = 33
+Took Action.GO_DOWN	to [ pos = (7, 1)	remaining = 1	food state = bitarray('111111111101') ] => C = 34
+Took Action.GO_RIGHT	to [ pos = (7, 2)	remaining = 1	food state = bitarray('111111111101') ] => C = 35
+Took Action.GO_RIGHT	to [ pos = (7, 3)	remaining = 0	food state = bitarray('111111111111') ] => C = 36
+Took 3.3246320000000003 to complete

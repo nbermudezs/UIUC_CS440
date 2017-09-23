@@ -1,0 +1,240 @@
+114975 function calls (109661 primitive calls) in 0.065 seconds
+
+Ordered by: cumulative time
+
+ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+1    0.011    0.011    0.065    0.065 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:110(graph_search)
+2795    0.004    0.000    0.016    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:94(child_node)
+2795    0.003    0.000    0.010    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/maze_problem.py:195(result)
+11886    0.006    0.000    0.010    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/maze_problem.py:60(__hash__)
+5314    0.002    0.000    0.008    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:54(__hash__)
+17200/11886    0.004    0.000    0.008    0.000 {built-in method builtins.hash}
+1261    0.003    0.000    0.007    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/queue.py:115(put)
+1259    0.003    0.000    0.007    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/queue.py:147(get)
+2795    0.004    0.000    0.006    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/maze_problem.py:89(move_to)
+2519    0.001    0.000    0.004    0.000 {method 'add' of 'set' objects}
+2520    0.002    0.000    0.004    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/threading.py:334(notify)
+1258    0.003    0.000    0.003    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/maze_problem.py:110(actions)
+686    0.000    0.000    0.003    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/maze_problem.py:84(go_left)
+1258    0.001    0.000    0.002    0.000 {method 'remove' of 'set' objects}
+4053    0.001    0.000    0.002    0.000 {method 'get' of 'dict' objects}
+11886    0.002    0.000    0.002    0.000 {method 'to01' of 'bitarray._bitarray' objects}
+2796    0.002    0.000    0.002    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:28(__init__)
+1259    0.001    0.000    0.002    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/queue.py:90(empty)
+687    0.000    0.000    0.002    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/maze_problem.py:79(go_right)
+712    0.000    0.000    0.002    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/maze_problem.py:74(go_down)
+710    0.000    0.000    0.002    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/maze_problem.py:69(go_up)
+2520    0.001    0.000    0.001    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/threading.py:254(_is_owned)
+2520    0.001    0.000    0.001    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/threading.py:239(__enter__)
+2795    0.001    0.000    0.001    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/maze_problem.py:41(__init__)
+2520    0.001    0.000    0.001    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/threading.py:242(__exit__)
+2518    0.001    0.000    0.001    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/queue.py:202(_qsize)
+1399    0.001    0.000    0.001    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:99(evaluate)
+1260    0.001    0.000    0.001    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/maze_problem.py:145(goal_test)
+2520    0.001    0.000    0.001    0.000 {method 'acquire' of '_thread.lock' objects}
+1261    0.000    0.000    0.001    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/queue.py:206(_put)
+1674    0.001    0.000    0.001    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/maze_problem.py:47(__eq__)
+1259    0.000    0.000    0.001    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/queue.py:210(_get)
+2520    0.001    0.000    0.001    0.000 {method '__enter__' of '_thread.lock' objects}
+2520    0.000    0.000    0.000    0.000 {method '__exit__' of '_thread.lock' objects}
+1260    0.000    0.000    0.000    0.000 {method 'count' of 'bitarray._bitarray' objects}
+2795    0.000    0.000    0.000    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/maze_problem.py:207(step_cost)
+2795    0.000    0.000    0.000    0.000 {method 'append' of 'list' objects}
+2519    0.000    0.000    0.000    0.000 {built-in method builtins.len}
+139    0.000    0.000    0.000    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:37(__eq__)
+1259    0.000    0.000    0.000    0.000 {method 'popleft' of 'collections.deque' objects}
+1261    0.000    0.000    0.000    0.000 {method 'append' of 'collections.deque' objects}
+1    0.000    0.000    0.000    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:82(initialize_frontier)
+1    0.000    0.000    0.000    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/queue.py:27(__init__)
+3    0.000    0.000    0.000    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/threading.py:215(__init__)
+1    0.000    0.000    0.000    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:72(__init__)
+1    0.000    0.000    0.000    0.000 {method 'setall' of 'bitarray._bitarray' objects}
+1    0.000    0.000    0.000    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/queue.py:199(_init)
+1    0.000    0.000    0.000    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:40(__ne__)
+1    0.000    0.000    0.000    0.000 {built-in method _thread.allocate_lock}
+1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+
+
+Large maze. BFS expanded nodes 1258 path cost 148
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%P....  %.......%...% %     %   %   %   %             % %   %         %     %   %
+%   %.%%%.% %%%.%.%.% % % %%% % % % % %%% %%% %% %%%% % % % % % %%%%% % %%% %%% %
+%   %.....% % %...%.%   %   % % % % % %   % % %     % %   %   %     %   % %     %
+%%% %%%% %% % %  %%.%% %% % %%% % % % % %%% % %%%%% % % %%%%% %   % % %%% % % % %
+%   % %     %     %.... % %   %   % % %     %     % % %     %   %       %   % % %
+%   % % % %   % % %   . % % % %%% % % %%%%% %%%%% % % %%%%% % % % %%% % %%% % %%%
+% %   % % %   % % %   . %   %     % %       %     % %     %   % %     %   %     %
+% %%% % %%% % %%% % % .%% %%% %%% % %% %%%% % %%%%% %     % %   %% %% %%% % %%% %
+% %       % % %   % % ..% %.....% %     %     %.........  % %       % %   % %   %
+% % %%%%% % % % %%% % %.%%%.%%%.% %%    % %%%%%.%%% %%%.%%% % %%%%% %%% %%% % % %
+%   %   %   % %     % %.....%...        % %   %.% %   %.... %     %     %   % % %
+% % %%% %%%%% % % %%% % % %%%.%%%%%%% %%% % %%%.% %%% % %%.%%%%......  %% %%% % %
+% %         % % %   % %   % %.%       %   % ....  % %   % ......  % .   %   % % %
+% % %%% %%%%% % %%% % %%%%% %.% %%%%%%%%% %%.%%%% % %%%%% %% %%%%%%%.%% %%% % %%%
+%   %   %     %   %   %      .%.........%   ..  %   %   % %   %     ...   % %   %
+%%% % %%% %%%%% %%%%%%% %%% %... %% %%%.%%%%%.% %%% % %       % % %%%%.%%%% %%% %
+%       % %           % %   %         %.......  % %   %   % % % %   % ....% %   %
+% %%%%%%% % %%%%% %%% % %%% % %%%%%%% %%%%%%%%%%% %%% %%% % % % %%% % %%%.% % %%%
+%         %     %   % %   % %   %   %   %   %     %     %   %   % %     %.% %   %
+%%%%% % %%%%%   %%% % %%% % %%% %%%     % % %%% % % %%% % %%%%%%% %%% %%%.% % % %
+%     %   %   %   % % %   %   %           %     %   %   %         %   %...% % % %
+% %%%%%%% % % % % % % % %%% % %%%%% % %%%%%%% %%%%%%% %%%%%%% %%% %%% %.%%% % % %
+%       % % %   % % % % %   %     % %       % %   %   %   %     %   % %...% % % %
+%%% %% %% % %%%%% % %%% % % %  %% % %%%% %% %%% % %%%%% % % % % %%% % %%%.% %%% %
+%         %   %   %   % % % %   % %       %     %       % % % %   % %   %.%     %
+% %%%%    %%% % %%% % % %%% %%% % % %%% % % % %%% % %%%%% % %     % % % %.%%%%% %
+%   %     %   % %   %       %   %   %   % % %   % % %     % %     % % % %.....% %
+% % %%% %%% %%% %% %%%%%%%%%% %%%%%%% %%% % %%% % % %%% % % % %%%%% %%% %%%%%.% %
+% %           %                       %   %     %       %   %               %...%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Initial state 		is [ pos = (1, 1)	remaining = 1	food state = bitarray('0') ]
+Took Action.GO_RIGHT	to [ pos = (1, 2)	remaining = 1	food state = bitarray('0') ] => C = 1
+Took Action.GO_RIGHT	to [ pos = (1, 3)	remaining = 1	food state = bitarray('0') ] => C = 2
+Took Action.GO_RIGHT	to [ pos = (1, 4)	remaining = 1	food state = bitarray('0') ] => C = 3
+Took Action.GO_RIGHT	to [ pos = (1, 5)	remaining = 1	food state = bitarray('0') ] => C = 4
+Took Action.GO_DOWN	to [ pos = (2, 5)	remaining = 1	food state = bitarray('0') ] => C = 5
+Took Action.GO_DOWN	to [ pos = (3, 5)	remaining = 1	food state = bitarray('0') ] => C = 6
+Took Action.GO_RIGHT	to [ pos = (3, 6)	remaining = 1	food state = bitarray('0') ] => C = 7
+Took Action.GO_RIGHT	to [ pos = (3, 7)	remaining = 1	food state = bitarray('0') ] => C = 8
+Took Action.GO_RIGHT	to [ pos = (3, 8)	remaining = 1	food state = bitarray('0') ] => C = 9
+Took Action.GO_RIGHT	to [ pos = (3, 9)	remaining = 1	food state = bitarray('0') ] => C = 10
+Took Action.GO_UP	to [ pos = (2, 9)	remaining = 1	food state = bitarray('0') ] => C = 11
+Took Action.GO_UP	to [ pos = (1, 9)	remaining = 1	food state = bitarray('0') ] => C = 12
+Took Action.GO_RIGHT	to [ pos = (1, 10)	remaining = 1	food state = bitarray('0') ] => C = 13
+Took Action.GO_RIGHT	to [ pos = (1, 11)	remaining = 1	food state = bitarray('0') ] => C = 14
+Took Action.GO_RIGHT	to [ pos = (1, 12)	remaining = 1	food state = bitarray('0') ] => C = 15
+Took Action.GO_RIGHT	to [ pos = (1, 13)	remaining = 1	food state = bitarray('0') ] => C = 16
+Took Action.GO_RIGHT	to [ pos = (1, 14)	remaining = 1	food state = bitarray('0') ] => C = 17
+Took Action.GO_RIGHT	to [ pos = (1, 15)	remaining = 1	food state = bitarray('0') ] => C = 18
+Took Action.GO_DOWN	to [ pos = (2, 15)	remaining = 1	food state = bitarray('0') ] => C = 19
+Took Action.GO_DOWN	to [ pos = (3, 15)	remaining = 1	food state = bitarray('0') ] => C = 20
+Took Action.GO_RIGHT	to [ pos = (3, 16)	remaining = 1	food state = bitarray('0') ] => C = 21
+Took Action.GO_RIGHT	to [ pos = (3, 17)	remaining = 1	food state = bitarray('0') ] => C = 22
+Took Action.GO_UP	to [ pos = (2, 17)	remaining = 1	food state = bitarray('0') ] => C = 23
+Took Action.GO_UP	to [ pos = (1, 17)	remaining = 1	food state = bitarray('0') ] => C = 24
+Took Action.GO_RIGHT	to [ pos = (1, 18)	remaining = 1	food state = bitarray('0') ] => C = 25
+Took Action.GO_RIGHT	to [ pos = (1, 19)	remaining = 1	food state = bitarray('0') ] => C = 26
+Took Action.GO_DOWN	to [ pos = (2, 19)	remaining = 1	food state = bitarray('0') ] => C = 27
+Took Action.GO_DOWN	to [ pos = (3, 19)	remaining = 1	food state = bitarray('0') ] => C = 28
+Took Action.GO_DOWN	to [ pos = (4, 19)	remaining = 1	food state = bitarray('0') ] => C = 29
+Took Action.GO_DOWN	to [ pos = (5, 19)	remaining = 1	food state = bitarray('0') ] => C = 30
+Took Action.GO_RIGHT	to [ pos = (5, 20)	remaining = 1	food state = bitarray('0') ] => C = 31
+Took Action.GO_RIGHT	to [ pos = (5, 21)	remaining = 1	food state = bitarray('0') ] => C = 32
+Took Action.GO_RIGHT	to [ pos = (5, 22)	remaining = 1	food state = bitarray('0') ] => C = 33
+Took Action.GO_DOWN	to [ pos = (6, 22)	remaining = 1	food state = bitarray('0') ] => C = 34
+Took Action.GO_DOWN	to [ pos = (7, 22)	remaining = 1	food state = bitarray('0') ] => C = 35
+Took Action.GO_DOWN	to [ pos = (8, 22)	remaining = 1	food state = bitarray('0') ] => C = 36
+Took Action.GO_DOWN	to [ pos = (9, 22)	remaining = 1	food state = bitarray('0') ] => C = 37
+Took Action.GO_RIGHT	to [ pos = (9, 23)	remaining = 1	food state = bitarray('0') ] => C = 38
+Took Action.GO_DOWN	to [ pos = (10, 23)	remaining = 1	food state = bitarray('0') ] => C = 39
+Took Action.GO_DOWN	to [ pos = (11, 23)	remaining = 1	food state = bitarray('0') ] => C = 40
+Took Action.GO_RIGHT	to [ pos = (11, 24)	remaining = 1	food state = bitarray('0') ] => C = 41
+Took Action.GO_RIGHT	to [ pos = (11, 25)	remaining = 1	food state = bitarray('0') ] => C = 42
+Took Action.GO_RIGHT	to [ pos = (11, 26)	remaining = 1	food state = bitarray('0') ] => C = 43
+Took Action.GO_RIGHT	to [ pos = (11, 27)	remaining = 1	food state = bitarray('0') ] => C = 44
+Took Action.GO_UP	to [ pos = (10, 27)	remaining = 1	food state = bitarray('0') ] => C = 45
+Took Action.GO_UP	to [ pos = (9, 27)	remaining = 1	food state = bitarray('0') ] => C = 46
+Took Action.GO_RIGHT	to [ pos = (9, 28)	remaining = 1	food state = bitarray('0') ] => C = 47
+Took Action.GO_RIGHT	to [ pos = (9, 29)	remaining = 1	food state = bitarray('0') ] => C = 48
+Took Action.GO_RIGHT	to [ pos = (9, 30)	remaining = 1	food state = bitarray('0') ] => C = 49
+Took Action.GO_RIGHT	to [ pos = (9, 31)	remaining = 1	food state = bitarray('0') ] => C = 50
+Took Action.GO_DOWN	to [ pos = (10, 31)	remaining = 1	food state = bitarray('0') ] => C = 51
+Took Action.GO_DOWN	to [ pos = (11, 31)	remaining = 1	food state = bitarray('0') ] => C = 52
+Took Action.GO_LEFT	to [ pos = (11, 30)	remaining = 1	food state = bitarray('0') ] => C = 53
+Took Action.GO_LEFT	to [ pos = (11, 29)	remaining = 1	food state = bitarray('0') ] => C = 54
+Took Action.GO_DOWN	to [ pos = (12, 29)	remaining = 1	food state = bitarray('0') ] => C = 55
+Took Action.GO_DOWN	to [ pos = (13, 29)	remaining = 1	food state = bitarray('0') ] => C = 56
+Took Action.GO_DOWN	to [ pos = (14, 29)	remaining = 1	food state = bitarray('0') ] => C = 57
+Took Action.GO_DOWN	to [ pos = (15, 29)	remaining = 1	food state = bitarray('0') ] => C = 58
+Took Action.GO_DOWN	to [ pos = (16, 29)	remaining = 1	food state = bitarray('0') ] => C = 59
+Took Action.GO_RIGHT	to [ pos = (16, 30)	remaining = 1	food state = bitarray('0') ] => C = 60
+Took Action.GO_RIGHT	to [ pos = (16, 31)	remaining = 1	food state = bitarray('0') ] => C = 61
+Took Action.GO_UP	to [ pos = (15, 31)	remaining = 1	food state = bitarray('0') ] => C = 62
+Took Action.GO_RIGHT	to [ pos = (15, 32)	remaining = 1	food state = bitarray('0') ] => C = 63
+Took Action.GO_RIGHT	to [ pos = (15, 33)	remaining = 1	food state = bitarray('0') ] => C = 64
+Took Action.GO_RIGHT	to [ pos = (15, 34)	remaining = 1	food state = bitarray('0') ] => C = 65
+Took Action.GO_RIGHT	to [ pos = (15, 35)	remaining = 1	food state = bitarray('0') ] => C = 66
+Took Action.GO_RIGHT	to [ pos = (15, 36)	remaining = 1	food state = bitarray('0') ] => C = 67
+Took Action.GO_RIGHT	to [ pos = (15, 37)	remaining = 1	food state = bitarray('0') ] => C = 68
+Took Action.GO_RIGHT	to [ pos = (15, 38)	remaining = 1	food state = bitarray('0') ] => C = 69
+Took Action.GO_RIGHT	to [ pos = (15, 39)	remaining = 1	food state = bitarray('0') ] => C = 70
+Took Action.GO_DOWN	to [ pos = (16, 39)	remaining = 1	food state = bitarray('0') ] => C = 71
+Took Action.GO_DOWN	to [ pos = (17, 39)	remaining = 1	food state = bitarray('0') ] => C = 72
+Took Action.GO_RIGHT	to [ pos = (17, 40)	remaining = 1	food state = bitarray('0') ] => C = 73
+Took Action.GO_RIGHT	to [ pos = (17, 41)	remaining = 1	food state = bitarray('0') ] => C = 74
+Took Action.GO_RIGHT	to [ pos = (17, 42)	remaining = 1	food state = bitarray('0') ] => C = 75
+Took Action.GO_RIGHT	to [ pos = (17, 43)	remaining = 1	food state = bitarray('0') ] => C = 76
+Took Action.GO_RIGHT	to [ pos = (17, 44)	remaining = 1	food state = bitarray('0') ] => C = 77
+Took Action.GO_RIGHT	to [ pos = (17, 45)	remaining = 1	food state = bitarray('0') ] => C = 78
+Took Action.GO_UP	to [ pos = (16, 45)	remaining = 1	food state = bitarray('0') ] => C = 79
+Took Action.GO_UP	to [ pos = (15, 45)	remaining = 1	food state = bitarray('0') ] => C = 80
+Took Action.GO_LEFT	to [ pos = (15, 44)	remaining = 1	food state = bitarray('0') ] => C = 81
+Took Action.GO_UP	to [ pos = (14, 44)	remaining = 1	food state = bitarray('0') ] => C = 82
+Took Action.GO_UP	to [ pos = (13, 44)	remaining = 1	food state = bitarray('0') ] => C = 83
+Took Action.GO_RIGHT	to [ pos = (13, 45)	remaining = 1	food state = bitarray('0') ] => C = 84
+Took Action.GO_RIGHT	to [ pos = (13, 46)	remaining = 1	food state = bitarray('0') ] => C = 85
+Took Action.GO_RIGHT	to [ pos = (13, 47)	remaining = 1	food state = bitarray('0') ] => C = 86
+Took Action.GO_UP	to [ pos = (12, 47)	remaining = 1	food state = bitarray('0') ] => C = 87
+Took Action.GO_UP	to [ pos = (11, 47)	remaining = 1	food state = bitarray('0') ] => C = 88
+Took Action.GO_UP	to [ pos = (10, 47)	remaining = 1	food state = bitarray('0') ] => C = 89
+Took Action.GO_UP	to [ pos = (9, 47)	remaining = 1	food state = bitarray('0') ] => C = 90
+Took Action.GO_RIGHT	to [ pos = (9, 48)	remaining = 1	food state = bitarray('0') ] => C = 91
+Took Action.GO_RIGHT	to [ pos = (9, 49)	remaining = 1	food state = bitarray('0') ] => C = 92
+Took Action.GO_RIGHT	to [ pos = (9, 50)	remaining = 1	food state = bitarray('0') ] => C = 93
+Took Action.GO_RIGHT	to [ pos = (9, 51)	remaining = 1	food state = bitarray('0') ] => C = 94
+Took Action.GO_RIGHT	to [ pos = (9, 52)	remaining = 1	food state = bitarray('0') ] => C = 95
+Took Action.GO_RIGHT	to [ pos = (9, 53)	remaining = 1	food state = bitarray('0') ] => C = 96
+Took Action.GO_RIGHT	to [ pos = (9, 54)	remaining = 1	food state = bitarray('0') ] => C = 97
+Took Action.GO_RIGHT	to [ pos = (9, 55)	remaining = 1	food state = bitarray('0') ] => C = 98
+Took Action.GO_DOWN	to [ pos = (10, 55)	remaining = 1	food state = bitarray('0') ] => C = 99
+Took Action.GO_DOWN	to [ pos = (11, 55)	remaining = 1	food state = bitarray('0') ] => C = 100
+Took Action.GO_RIGHT	to [ pos = (11, 56)	remaining = 1	food state = bitarray('0') ] => C = 101
+Took Action.GO_RIGHT	to [ pos = (11, 57)	remaining = 1	food state = bitarray('0') ] => C = 102
+Took Action.GO_RIGHT	to [ pos = (11, 58)	remaining = 1	food state = bitarray('0') ] => C = 103
+Took Action.GO_DOWN	to [ pos = (12, 58)	remaining = 1	food state = bitarray('0') ] => C = 104
+Took Action.GO_DOWN	to [ pos = (13, 58)	remaining = 1	food state = bitarray('0') ] => C = 105
+Took Action.GO_RIGHT	to [ pos = (13, 59)	remaining = 1	food state = bitarray('0') ] => C = 106
+Took Action.GO_RIGHT	to [ pos = (13, 60)	remaining = 1	food state = bitarray('0') ] => C = 107
+Took Action.GO_RIGHT	to [ pos = (13, 61)	remaining = 1	food state = bitarray('0') ] => C = 108
+Took Action.GO_RIGHT	to [ pos = (13, 62)	remaining = 1	food state = bitarray('0') ] => C = 109
+Took Action.GO_RIGHT	to [ pos = (13, 63)	remaining = 1	food state = bitarray('0') ] => C = 110
+Took Action.GO_UP	to [ pos = (12, 63)	remaining = 1	food state = bitarray('0') ] => C = 111
+Took Action.GO_RIGHT	to [ pos = (12, 64)	remaining = 1	food state = bitarray('0') ] => C = 112
+Took Action.GO_RIGHT	to [ pos = (12, 65)	remaining = 1	food state = bitarray('0') ] => C = 113
+Took Action.GO_RIGHT	to [ pos = (12, 66)	remaining = 1	food state = bitarray('0') ] => C = 114
+Took Action.GO_RIGHT	to [ pos = (12, 67)	remaining = 1	food state = bitarray('0') ] => C = 115
+Took Action.GO_RIGHT	to [ pos = (12, 68)	remaining = 1	food state = bitarray('0') ] => C = 116
+Took Action.GO_DOWN	to [ pos = (13, 68)	remaining = 1	food state = bitarray('0') ] => C = 117
+Took Action.GO_DOWN	to [ pos = (14, 68)	remaining = 1	food state = bitarray('0') ] => C = 118
+Took Action.GO_DOWN	to [ pos = (15, 68)	remaining = 1	food state = bitarray('0') ] => C = 119
+Took Action.GO_RIGHT	to [ pos = (15, 69)	remaining = 1	food state = bitarray('0') ] => C = 120
+Took Action.GO_RIGHT	to [ pos = (15, 70)	remaining = 1	food state = bitarray('0') ] => C = 121
+Took Action.GO_DOWN	to [ pos = (16, 70)	remaining = 1	food state = bitarray('0') ] => C = 122
+Took Action.GO_DOWN	to [ pos = (17, 70)	remaining = 1	food state = bitarray('0') ] => C = 123
+Took Action.GO_RIGHT	to [ pos = (17, 71)	remaining = 1	food state = bitarray('0') ] => C = 124
+Took Action.GO_RIGHT	to [ pos = (17, 72)	remaining = 1	food state = bitarray('0') ] => C = 125
+Took Action.GO_RIGHT	to [ pos = (17, 73)	remaining = 1	food state = bitarray('0') ] => C = 126
+Took Action.GO_DOWN	to [ pos = (18, 73)	remaining = 1	food state = bitarray('0') ] => C = 127
+Took Action.GO_DOWN	to [ pos = (19, 73)	remaining = 1	food state = bitarray('0') ] => C = 128
+Took Action.GO_DOWN	to [ pos = (20, 73)	remaining = 1	food state = bitarray('0') ] => C = 129
+Took Action.GO_DOWN	to [ pos = (21, 73)	remaining = 1	food state = bitarray('0') ] => C = 130
+Took Action.GO_LEFT	to [ pos = (21, 72)	remaining = 1	food state = bitarray('0') ] => C = 131
+Took Action.GO_LEFT	to [ pos = (21, 71)	remaining = 1	food state = bitarray('0') ] => C = 132
+Took Action.GO_DOWN	to [ pos = (22, 71)	remaining = 1	food state = bitarray('0') ] => C = 133
+Took Action.GO_DOWN	to [ pos = (23, 71)	remaining = 1	food state = bitarray('0') ] => C = 134
+Took Action.GO_RIGHT	to [ pos = (23, 72)	remaining = 1	food state = bitarray('0') ] => C = 135
+Took Action.GO_RIGHT	to [ pos = (23, 73)	remaining = 1	food state = bitarray('0') ] => C = 136
+Took Action.GO_DOWN	to [ pos = (24, 73)	remaining = 1	food state = bitarray('0') ] => C = 137
+Took Action.GO_DOWN	to [ pos = (25, 73)	remaining = 1	food state = bitarray('0') ] => C = 138
+Took Action.GO_DOWN	to [ pos = (26, 73)	remaining = 1	food state = bitarray('0') ] => C = 139
+Took Action.GO_DOWN	to [ pos = (27, 73)	remaining = 1	food state = bitarray('0') ] => C = 140
+Took Action.GO_RIGHT	to [ pos = (27, 74)	remaining = 1	food state = bitarray('0') ] => C = 141
+Took Action.GO_RIGHT	to [ pos = (27, 75)	remaining = 1	food state = bitarray('0') ] => C = 142
+Took Action.GO_RIGHT	to [ pos = (27, 76)	remaining = 1	food state = bitarray('0') ] => C = 143
+Took Action.GO_RIGHT	to [ pos = (27, 77)	remaining = 1	food state = bitarray('0') ] => C = 144
+Took Action.GO_DOWN	to [ pos = (28, 77)	remaining = 1	food state = bitarray('0') ] => C = 145
+Took Action.GO_DOWN	to [ pos = (29, 77)	remaining = 1	food state = bitarray('0') ] => C = 146
+Took Action.GO_RIGHT	to [ pos = (29, 78)	remaining = 1	food state = bitarray('0') ] => C = 147
+Took Action.GO_RIGHT	to [ pos = (29, 79)	remaining = 0	food state = bitarray('1') ] => C = 148
+Took 0.06786700000000001 to complete

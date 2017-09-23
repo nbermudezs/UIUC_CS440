@@ -1,0 +1,218 @@
+         244502625 function calls (240165242 primitive calls) in 154.324 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1   11.203   11.203  154.324  154.324 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:110(graph_search)
+   949368    0.454    0.000   53.060    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:18(get)
+  1236368   10.457    0.000   52.709    0.000 {built-in method _heapq.heappop}
+ 16983038   14.307    0.000   37.536    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:43(__lt__)
+  1264661    6.026    0.000   32.552    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:99(evaluate)
+  1011859    5.812    0.000   21.864    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:305(estimated_cost)
+  2399464    5.912    0.000   20.640    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:94(child_node)
+ 16983038   12.571    0.000   18.974    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:54(__lt__)
+ 17264098   11.862    0.000   17.647    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:37(__eq__)
+  1040124    0.620    0.000   16.296    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:15(put)
+  1327124    3.218    0.000   15.788    0.000 {built-in method _heapq.heappush}
+  1011859    4.011    0.000   14.843    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:187(minimum_spanning_tree_perimeter)
+ 14205437    7.765    0.000   14.132    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:59(__hash__)
+ 36196867   11.094    0.000   11.094    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:46(__eq__)
+  2399464    2.673    0.000    9.470    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:290(result)
+18542820/14205437    4.354    0.000    8.003    0.000 {built-in method builtins.hash}
+  4337383    1.501    0.000    7.805    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:54(__hash__)
+  1011858    5.099    0.000    6.988    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:175(distance_to_closest)
+ 41508975    6.543    0.000    6.543    0.000 {method 'count' of 'bitarray._bitarray' objects}
+ 20310395    3.548    0.000    6.226    0.000 {method 'add' of 'set' objects}
+  2399464    2.940    0.000    5.177    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:88(move_to)
+  2399465    4.962    0.000    4.962    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:28(__init__)
+ 15217295    4.183    0.000    4.183    0.000 {method 'to01' of 'bitarray._bitarray' objects}
+  1011858    2.389    0.000    3.346    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:140(minimum_spanning_tree)
+   926059    2.630    0.000    2.925    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:205(actions)
+  5878582    1.585    0.000    2.673    0.000 {method 'get' of 'dict' objects}
+   702452    0.481    0.000    2.301    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:78(go_right)
+   926059    0.564    0.000    2.226    0.000 {method 'remove' of 'set' objects}
+   703219    0.475    0.000    1.874    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:83(go_left)
+  2399464    1.677    0.000    1.677    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:40(__init__)
+   502353    0.332    0.000    1.352    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:73(go_down)
+   491440    0.331    0.000    1.270    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:68(go_up)
+  1026543    0.717    0.000    0.717    0.000 {built-in method builtins.min}
+   949368    0.407    0.000    0.571    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:21(empty)
+   949369    0.348    0.000    0.488    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:240(goal_test)
+  2262913    0.368    0.000    0.368    0.000 {built-in method builtins.len}
+  2399464    0.296    0.000    0.296    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:302(step_cost)
+  2399464    0.295    0.000    0.295    0.000 {method 'append' of 'list' objects}
+   287000    0.096    0.000    0.209    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:11(put)
+   287000    0.089    0.000    0.193    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:14(get)
+   301685    0.098    0.000    0.135    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:17(empty)
+    74659    0.018    0.000    0.018    0.000 {method 'setall' of 'bitarray._bitarray' objects}
+    14685    0.008    0.000    0.008    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:8(__init__)
+     2853    0.002    0.000    0.003    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/pacman_problem.py:99(manhattan_distance)
+     5706    0.001    0.000    0.001    0.000 {built-in method math.fabs}
+        1    0.000    0.000    0.000    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:72(__init__)
+        1    0.000    0.000    0.000    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:82(initialize_frontier)
+        1    0.000    0.000    0.000    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:12(__init__)
+        1    0.000    0.000    0.000    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part1/search_problem_solver.py:40(__ne__)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+
+
+Small maze. A* expanded nodes 926059 path cost 143
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%      P.......%.............%
+%   %%%%%.%%%%%%.%. % %.%%  .%
+%   %. % ....%  .%. % %..%  .%
+%..... %    .....%.   % .%%%%%
+%%%%%.%%%% %%% .%%%%%%%......%
+%...........   ...    %.%%%  %
+%%.%%%%%%%%.%%%%%%%%%%%.%    %
+%..     %  .........   .% %%%%
+%.      %%%%%.    %.....     %
+%.% %%%    % .%   %% %%.%%%%%%
+%          % .%        ......%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Initial state 		is [ pos = (1, 7)	remaining = 15	food state = bitarray('000000000000000') ]
+Took Action.GO_RIGHT	to [ pos = (1, 8)	remaining = 15	food state = bitarray('000000000000000') ] => C = 1
+Took Action.GO_RIGHT	to [ pos = (1, 9)	remaining = 15	food state = bitarray('000000000000000') ] => C = 2
+Took Action.GO_RIGHT	to [ pos = (1, 10)	remaining = 15	food state = bitarray('000000000000000') ] => C = 3
+Took Action.GO_RIGHT	to [ pos = (1, 11)	remaining = 15	food state = bitarray('000000000000000') ] => C = 4
+Took Action.GO_RIGHT	to [ pos = (1, 12)	remaining = 15	food state = bitarray('000000000000000') ] => C = 5
+Took Action.GO_RIGHT	to [ pos = (1, 13)	remaining = 15	food state = bitarray('000000000000000') ] => C = 6
+Took Action.GO_RIGHT	to [ pos = (1, 14)	remaining = 14	food state = bitarray('100000000000000') ] => C = 7
+Took Action.GO_LEFT	to [ pos = (1, 13)	remaining = 14	food state = bitarray('100000000000000') ] => C = 8
+Took Action.GO_LEFT	to [ pos = (1, 12)	remaining = 14	food state = bitarray('100000000000000') ] => C = 9
+Took Action.GO_LEFT	to [ pos = (1, 11)	remaining = 14	food state = bitarray('100000000000000') ] => C = 10
+Took Action.GO_LEFT	to [ pos = (1, 10)	remaining = 14	food state = bitarray('100000000000000') ] => C = 11
+Took Action.GO_LEFT	to [ pos = (1, 9)	remaining = 14	food state = bitarray('100000000000000') ] => C = 12
+Took Action.GO_DOWN	to [ pos = (2, 9)	remaining = 14	food state = bitarray('100000000000000') ] => C = 13
+Took Action.GO_DOWN	to [ pos = (3, 9)	remaining = 14	food state = bitarray('100000000000000') ] => C = 14
+Took Action.GO_RIGHT	to [ pos = (3, 10)	remaining = 14	food state = bitarray('100000000000000') ] => C = 15
+Took Action.GO_RIGHT	to [ pos = (3, 11)	remaining = 14	food state = bitarray('100000000000000') ] => C = 16
+Took Action.GO_RIGHT	to [ pos = (3, 12)	remaining = 14	food state = bitarray('100000000000000') ] => C = 17
+Took Action.GO_DOWN	to [ pos = (4, 12)	remaining = 14	food state = bitarray('100000000000000') ] => C = 18
+Took Action.GO_RIGHT	to [ pos = (4, 13)	remaining = 13	food state = bitarray('100000100000000') ] => C = 19
+Took Action.GO_RIGHT	to [ pos = (4, 14)	remaining = 13	food state = bitarray('100000100000000') ] => C = 20
+Took Action.GO_RIGHT	to [ pos = (4, 15)	remaining = 13	food state = bitarray('100000100000000') ] => C = 21
+Took Action.GO_DOWN	to [ pos = (5, 15)	remaining = 13	food state = bitarray('100000100000000') ] => C = 22
+Took Action.GO_DOWN	to [ pos = (6, 15)	remaining = 13	food state = bitarray('100000100000000') ] => C = 23
+Took Action.GO_RIGHT	to [ pos = (6, 16)	remaining = 13	food state = bitarray('100000100000000') ] => C = 24
+Took Action.GO_RIGHT	to [ pos = (6, 17)	remaining = 12	food state = bitarray('100000100010000') ] => C = 25
+Took Action.GO_LEFT	to [ pos = (6, 16)	remaining = 12	food state = bitarray('100000100010000') ] => C = 26
+Took Action.GO_LEFT	to [ pos = (6, 15)	remaining = 12	food state = bitarray('100000100010000') ] => C = 27
+Took Action.GO_UP	to [ pos = (5, 15)	remaining = 12	food state = bitarray('100000100010000') ] => C = 28
+Took Action.GO_UP	to [ pos = (4, 15)	remaining = 12	food state = bitarray('100000100010000') ] => C = 29
+Took Action.GO_RIGHT	to [ pos = (4, 16)	remaining = 12	food state = bitarray('100000100010000') ] => C = 30
+Took Action.GO_UP	to [ pos = (3, 16)	remaining = 12	food state = bitarray('100000100010000') ] => C = 31
+Took Action.GO_UP	to [ pos = (2, 16)	remaining = 12	food state = bitarray('100000100010000') ] => C = 32
+Took Action.GO_UP	to [ pos = (1, 16)	remaining = 12	food state = bitarray('100000100010000') ] => C = 33
+Took Action.GO_RIGHT	to [ pos = (1, 17)	remaining = 12	food state = bitarray('100000100010000') ] => C = 34
+Took Action.GO_RIGHT	to [ pos = (1, 18)	remaining = 12	food state = bitarray('100000100010000') ] => C = 35
+Took Action.GO_DOWN	to [ pos = (2, 18)	remaining = 12	food state = bitarray('100000100010000') ] => C = 36
+Took Action.GO_DOWN	to [ pos = (3, 18)	remaining = 12	food state = bitarray('100000100010000') ] => C = 37
+Took Action.GO_DOWN	to [ pos = (4, 18)	remaining = 11	food state = bitarray('100000110010000') ] => C = 38
+Took Action.GO_UP	to [ pos = (3, 18)	remaining = 11	food state = bitarray('100000110010000') ] => C = 39
+Took Action.GO_UP	to [ pos = (2, 18)	remaining = 11	food state = bitarray('100000110010000') ] => C = 40
+Took Action.GO_UP	to [ pos = (1, 18)	remaining = 11	food state = bitarray('100000110010000') ] => C = 41
+Took Action.GO_RIGHT	to [ pos = (1, 19)	remaining = 11	food state = bitarray('100000110010000') ] => C = 42
+Took Action.GO_RIGHT	to [ pos = (1, 20)	remaining = 11	food state = bitarray('100000110010000') ] => C = 43
+Took Action.GO_RIGHT	to [ pos = (1, 21)	remaining = 11	food state = bitarray('100000110010000') ] => C = 44
+Took Action.GO_RIGHT	to [ pos = (1, 22)	remaining = 10	food state = bitarray('110000110010000') ] => C = 45
+Took Action.GO_RIGHT	to [ pos = (1, 23)	remaining = 10	food state = bitarray('110000110010000') ] => C = 46
+Took Action.GO_RIGHT	to [ pos = (1, 24)	remaining = 10	food state = bitarray('110000110010000') ] => C = 47
+Took Action.GO_RIGHT	to [ pos = (1, 25)	remaining = 9	food state = bitarray('111000110010000') ] => C = 48
+Took Action.GO_RIGHT	to [ pos = (1, 26)	remaining = 9	food state = bitarray('111000110010000') ] => C = 49
+Took Action.GO_RIGHT	to [ pos = (1, 27)	remaining = 9	food state = bitarray('111000110010000') ] => C = 50
+Took Action.GO_RIGHT	to [ pos = (1, 28)	remaining = 9	food state = bitarray('111000110010000') ] => C = 51
+Took Action.GO_DOWN	to [ pos = (2, 28)	remaining = 9	food state = bitarray('111000110010000') ] => C = 52
+Took Action.GO_DOWN	to [ pos = (3, 28)	remaining = 8	food state = bitarray('111010110010000') ] => C = 53
+Took Action.GO_UP	to [ pos = (2, 28)	remaining = 8	food state = bitarray('111010110010000') ] => C = 54
+Took Action.GO_UP	to [ pos = (1, 28)	remaining = 8	food state = bitarray('111010110010000') ] => C = 55
+Took Action.GO_LEFT	to [ pos = (1, 27)	remaining = 8	food state = bitarray('111010110010000') ] => C = 56
+Took Action.GO_LEFT	to [ pos = (1, 26)	remaining = 8	food state = bitarray('111010110010000') ] => C = 57
+Took Action.GO_LEFT	to [ pos = (1, 25)	remaining = 8	food state = bitarray('111010110010000') ] => C = 58
+Took Action.GO_LEFT	to [ pos = (1, 24)	remaining = 8	food state = bitarray('111010110010000') ] => C = 59
+Took Action.GO_LEFT	to [ pos = (1, 23)	remaining = 8	food state = bitarray('111010110010000') ] => C = 60
+Took Action.GO_DOWN	to [ pos = (2, 23)	remaining = 8	food state = bitarray('111010110010000') ] => C = 61
+Took Action.GO_DOWN	to [ pos = (3, 23)	remaining = 8	food state = bitarray('111010110010000') ] => C = 62
+Took Action.GO_RIGHT	to [ pos = (3, 24)	remaining = 8	food state = bitarray('111010110010000') ] => C = 63
+Took Action.GO_DOWN	to [ pos = (4, 24)	remaining = 8	food state = bitarray('111010110010000') ] => C = 64
+Took Action.GO_DOWN	to [ pos = (5, 24)	remaining = 8	food state = bitarray('111010110010000') ] => C = 65
+Took Action.GO_RIGHT	to [ pos = (5, 25)	remaining = 8	food state = bitarray('111010110010000') ] => C = 66
+Took Action.GO_RIGHT	to [ pos = (5, 26)	remaining = 8	food state = bitarray('111010110010000') ] => C = 67
+Took Action.GO_RIGHT	to [ pos = (5, 27)	remaining = 8	food state = bitarray('111010110010000') ] => C = 68
+Took Action.GO_RIGHT	to [ pos = (5, 28)	remaining = 7	food state = bitarray('111010111010000') ] => C = 69
+Took Action.GO_LEFT	to [ pos = (5, 27)	remaining = 7	food state = bitarray('111010111010000') ] => C = 70
+Took Action.GO_LEFT	to [ pos = (5, 26)	remaining = 7	food state = bitarray('111010111010000') ] => C = 71
+Took Action.GO_LEFT	to [ pos = (5, 25)	remaining = 7	food state = bitarray('111010111010000') ] => C = 72
+Took Action.GO_LEFT	to [ pos = (5, 24)	remaining = 7	food state = bitarray('111010111010000') ] => C = 73
+Took Action.GO_LEFT	to [ pos = (5, 23)	remaining = 7	food state = bitarray('111010111010000') ] => C = 74
+Took Action.GO_DOWN	to [ pos = (6, 23)	remaining = 7	food state = bitarray('111010111010000') ] => C = 75
+Took Action.GO_DOWN	to [ pos = (7, 23)	remaining = 7	food state = bitarray('111010111010000') ] => C = 76
+Took Action.GO_DOWN	to [ pos = (8, 23)	remaining = 7	food state = bitarray('111010111010000') ] => C = 77
+Took Action.GO_DOWN	to [ pos = (9, 23)	remaining = 7	food state = bitarray('111010111010000') ] => C = 78
+Took Action.GO_DOWN	to [ pos = (10, 23)	remaining = 7	food state = bitarray('111010111010000') ] => C = 79
+Took Action.GO_DOWN	to [ pos = (11, 23)	remaining = 7	food state = bitarray('111010111010000') ] => C = 80
+Took Action.GO_RIGHT	to [ pos = (11, 24)	remaining = 7	food state = bitarray('111010111010000') ] => C = 81
+Took Action.GO_RIGHT	to [ pos = (11, 25)	remaining = 7	food state = bitarray('111010111010000') ] => C = 82
+Took Action.GO_RIGHT	to [ pos = (11, 26)	remaining = 7	food state = bitarray('111010111010000') ] => C = 83
+Took Action.GO_RIGHT	to [ pos = (11, 27)	remaining = 7	food state = bitarray('111010111010000') ] => C = 84
+Took Action.GO_RIGHT	to [ pos = (11, 28)	remaining = 6	food state = bitarray('111010111010001') ] => C = 85
+Took Action.GO_LEFT	to [ pos = (11, 27)	remaining = 6	food state = bitarray('111010111010001') ] => C = 86
+Took Action.GO_LEFT	to [ pos = (11, 26)	remaining = 6	food state = bitarray('111010111010001') ] => C = 87
+Took Action.GO_LEFT	to [ pos = (11, 25)	remaining = 6	food state = bitarray('111010111010001') ] => C = 88
+Took Action.GO_LEFT	to [ pos = (11, 24)	remaining = 6	food state = bitarray('111010111010001') ] => C = 89
+Took Action.GO_LEFT	to [ pos = (11, 23)	remaining = 6	food state = bitarray('111010111010001') ] => C = 90
+Took Action.GO_UP	to [ pos = (10, 23)	remaining = 6	food state = bitarray('111010111010001') ] => C = 91
+Took Action.GO_UP	to [ pos = (9, 23)	remaining = 6	food state = bitarray('111010111010001') ] => C = 92
+Took Action.GO_LEFT	to [ pos = (9, 22)	remaining = 6	food state = bitarray('111010111010001') ] => C = 93
+Took Action.GO_LEFT	to [ pos = (9, 21)	remaining = 6	food state = bitarray('111010111010001') ] => C = 94
+Took Action.GO_LEFT	to [ pos = (9, 20)	remaining = 6	food state = bitarray('111010111010001') ] => C = 95
+Took Action.GO_LEFT	to [ pos = (9, 19)	remaining = 5	food state = bitarray('111010111011001') ] => C = 96
+Took Action.GO_UP	to [ pos = (8, 19)	remaining = 5	food state = bitarray('111010111011001') ] => C = 97
+Took Action.GO_LEFT	to [ pos = (8, 18)	remaining = 5	food state = bitarray('111010111011001') ] => C = 98
+Took Action.GO_LEFT	to [ pos = (8, 17)	remaining = 5	food state = bitarray('111010111011001') ] => C = 99
+Took Action.GO_LEFT	to [ pos = (8, 16)	remaining = 5	food state = bitarray('111010111011001') ] => C = 100
+Took Action.GO_LEFT	to [ pos = (8, 15)	remaining = 5	food state = bitarray('111010111011001') ] => C = 101
+Took Action.GO_LEFT	to [ pos = (8, 14)	remaining = 5	food state = bitarray('111010111011001') ] => C = 102
+Took Action.GO_LEFT	to [ pos = (8, 13)	remaining = 5	food state = bitarray('111010111011001') ] => C = 103
+Took Action.GO_DOWN	to [ pos = (9, 13)	remaining = 5	food state = bitarray('111010111011001') ] => C = 104
+Took Action.GO_DOWN	to [ pos = (10, 13)	remaining = 5	food state = bitarray('111010111011001') ] => C = 105
+Took Action.GO_DOWN	to [ pos = (11, 13)	remaining = 4	food state = bitarray('111010111011011') ] => C = 106
+Took Action.GO_UP	to [ pos = (10, 13)	remaining = 4	food state = bitarray('111010111011011') ] => C = 107
+Took Action.GO_UP	to [ pos = (9, 13)	remaining = 4	food state = bitarray('111010111011011') ] => C = 108
+Took Action.GO_UP	to [ pos = (8, 13)	remaining = 4	food state = bitarray('111010111011011') ] => C = 109
+Took Action.GO_LEFT	to [ pos = (8, 12)	remaining = 4	food state = bitarray('111010111011011') ] => C = 110
+Took Action.GO_LEFT	to [ pos = (8, 11)	remaining = 4	food state = bitarray('111010111011011') ] => C = 111
+Took Action.GO_UP	to [ pos = (7, 11)	remaining = 4	food state = bitarray('111010111011011') ] => C = 112
+Took Action.GO_UP	to [ pos = (6, 11)	remaining = 4	food state = bitarray('111010111011011') ] => C = 113
+Took Action.GO_LEFT	to [ pos = (6, 10)	remaining = 4	food state = bitarray('111010111011011') ] => C = 114
+Took Action.GO_LEFT	to [ pos = (6, 9)	remaining = 4	food state = bitarray('111010111011011') ] => C = 115
+Took Action.GO_LEFT	to [ pos = (6, 8)	remaining = 4	food state = bitarray('111010111011011') ] => C = 116
+Took Action.GO_LEFT	to [ pos = (6, 7)	remaining = 4	food state = bitarray('111010111011011') ] => C = 117
+Took Action.GO_LEFT	to [ pos = (6, 6)	remaining = 4	food state = bitarray('111010111011011') ] => C = 118
+Took Action.GO_LEFT	to [ pos = (6, 5)	remaining = 4	food state = bitarray('111010111011011') ] => C = 119
+Took Action.GO_UP	to [ pos = (5, 5)	remaining = 4	food state = bitarray('111010111011011') ] => C = 120
+Took Action.GO_UP	to [ pos = (4, 5)	remaining = 4	food state = bitarray('111010111011011') ] => C = 121
+Took Action.GO_UP	to [ pos = (3, 5)	remaining = 3	food state = bitarray('111110111011011') ] => C = 122
+Took Action.GO_DOWN	to [ pos = (4, 5)	remaining = 3	food state = bitarray('111110111011011') ] => C = 123
+Took Action.GO_LEFT	to [ pos = (4, 4)	remaining = 3	food state = bitarray('111110111011011') ] => C = 124
+Took Action.GO_LEFT	to [ pos = (4, 3)	remaining = 3	food state = bitarray('111110111011011') ] => C = 125
+Took Action.GO_LEFT	to [ pos = (4, 2)	remaining = 3	food state = bitarray('111110111011011') ] => C = 126
+Took Action.GO_LEFT	to [ pos = (4, 1)	remaining = 2	food state = bitarray('111111111011011') ] => C = 127
+Took Action.GO_RIGHT	to [ pos = (4, 2)	remaining = 2	food state = bitarray('111111111011011') ] => C = 128
+Took Action.GO_RIGHT	to [ pos = (4, 3)	remaining = 2	food state = bitarray('111111111011011') ] => C = 129
+Took Action.GO_RIGHT	to [ pos = (4, 4)	remaining = 2	food state = bitarray('111111111011011') ] => C = 130
+Took Action.GO_RIGHT	to [ pos = (4, 5)	remaining = 2	food state = bitarray('111111111011011') ] => C = 131
+Took Action.GO_DOWN	to [ pos = (5, 5)	remaining = 2	food state = bitarray('111111111011011') ] => C = 132
+Took Action.GO_DOWN	to [ pos = (6, 5)	remaining = 2	food state = bitarray('111111111011011') ] => C = 133
+Took Action.GO_LEFT	to [ pos = (6, 4)	remaining = 2	food state = bitarray('111111111011011') ] => C = 134
+Took Action.GO_LEFT	to [ pos = (6, 3)	remaining = 2	food state = bitarray('111111111011011') ] => C = 135
+Took Action.GO_LEFT	to [ pos = (6, 2)	remaining = 2	food state = bitarray('111111111011011') ] => C = 136
+Took Action.GO_LEFT	to [ pos = (6, 1)	remaining = 1	food state = bitarray('111111111111011') ] => C = 137
+Took Action.GO_RIGHT	to [ pos = (6, 2)	remaining = 1	food state = bitarray('111111111111011') ] => C = 138
+Took Action.GO_DOWN	to [ pos = (7, 2)	remaining = 1	food state = bitarray('111111111111011') ] => C = 139
+Took Action.GO_DOWN	to [ pos = (8, 2)	remaining = 1	food state = bitarray('111111111111011') ] => C = 140
+Took Action.GO_LEFT	to [ pos = (8, 1)	remaining = 1	food state = bitarray('111111111111011') ] => C = 141
+Took Action.GO_DOWN	to [ pos = (9, 1)	remaining = 1	food state = bitarray('111111111111011') ] => C = 142
+Took Action.GO_DOWN	to [ pos = (10, 1)	remaining = 0	food state = bitarray('111111111111111') ] => C = 143
+Took 154.239387 to complete
