@@ -1,0 +1,94 @@
+61206854 function calls (58816940 primitive calls) in 45.565 seconds
+
+Ordered by: cumulative time
+
+ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+1    6.366    6.366   45.565   45.565 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part2/search_problem_solver.py:110(graph_search)
+1308072    3.889    0.000   11.980    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part2/search_problem_solver.py:94(child_node)
+7543448    4.179    0.000    8.487    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part2/sokoban_problem.py:140(__hash__)
+1081843    7.176    0.000    7.796    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/threading.py:334(notify)
+596660    1.185    0.000    7.717    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/queue.py:115(put)
+12549506/10159592    2.593    0.000    4.932    0.000 {built-in method builtins.hash}
+1308072    1.064    0.000    4.569    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part2/sokoban_problem.py:335(result)
+2389914    0.763    0.000    4.497    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part2/search_problem_solver.py:54(__hash__)
+485183    0.979    0.000    4.081    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/queue.py:147(get)
+7543448    2.967    0.000    2.967    0.000 {method 'to01' of 'bitarray._bitarray' objects}
+1081842    0.582    0.000    2.217    0.000 {method 'add' of 'set' objects}
+771598    1.875    0.000    1.875    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part2/search_problem_solver.py:99(evaluate)
+485182    1.642    0.000    1.794    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part2/sokoban_problem.py:281(actions)
+1308073    1.384    0.000    1.384    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part2/search_problem_solver.py:28(__init__)
+1308072    0.976    0.000    1.275    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part2/sokoban_problem.py:97(__init__)
+485182    0.271    0.000    1.126    0.000 {method 'remove' of 'set' objects}
+2616144    0.761    0.000    1.072    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/enum.py:579(__hash__)
+485182    0.327    0.000    0.875    0.000 {method 'get' of 'dict' objects}
+338106    0.460    0.000    0.792    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part2/sokoban_problem.py:152(up)
+320996    0.437    0.000    0.762    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part2/sokoban_problem.py:164(down)
+316274    0.414    0.000    0.724    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part2/sokoban_problem.py:176(right)
+332696    0.402    0.000    0.711    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part2/sokoban_problem.py:188(left)
+485183    0.437    0.000    0.678    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/queue.py:90(empty)
+1081843    0.382    0.000    0.625    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/threading.py:239(__enter__)
+1081843    0.359    0.000    0.620    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/threading.py:254(_is_owned)
+886352    0.571    0.000    0.571    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part2/sokoban_problem.py:126(__eq__)
+1081843    0.341    0.000    0.473    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/threading.py:242(__exit__)
+970366    0.315    0.000    0.448    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/queue.py:202(_qsize)
+485183    0.408    0.000    0.408    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part2/sokoban_problem.py:326(goal_test)
+596660    0.224    0.000    0.301    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/queue.py:206(_put)
+1308072    0.299    0.000    0.299    0.000 {method 'count' of 'bitarray._bitarray' objects}
+1081843    0.262    0.000    0.262    0.000 {method 'acquire' of '_thread.lock' objects}
+174939    0.153    0.000    0.260    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part2/search_problem_solver.py:37(__eq__)
+1081843    0.243    0.000    0.243    0.000 {method '__enter__' of '_thread.lock' objects}
+485183    0.162    0.000    0.231    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/queue.py:210(_get)
+1308072    0.154    0.000    0.154    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part2/sokoban_problem.py:331(step_cost)
+1308072    0.152    0.000    0.152    0.000 {method 'append' of 'list' objects}
+970367    0.133    0.000    0.133    0.000 {built-in method builtins.len}
+1081843    0.133    0.000    0.133    0.000 {method '__exit__' of '_thread.lock' objects}
+596660    0.077    0.000    0.077    0.000 {method 'append' of 'collections.deque' objects}
+485183    0.069    0.000    0.069    0.000 {method 'popleft' of 'collections.deque' objects}
+1    0.000    0.000    0.000    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part2/search_problem_solver.py:82(initialize_frontier)
+1    0.000    0.000    0.000    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/queue.py:27(__init__)
+3    0.000    0.000    0.000    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/threading.py:215(__init__)
+1    0.000    0.000    0.000    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part2/search_problem_solver.py:72(__init__)
+1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+1    0.000    0.000    0.000    0.000 /Users/nbermudezs/Documents/Personal/College/UIUC/Fall 2017/CS440/programming/assignment1/part2/search_problem_solver.py:40(__ne__)
+1    0.000    0.000    0.000    0.000 /Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/queue.py:199(_init)
+1    0.000    0.000    0.000    0.000 {built-in method _thread.allocate_lock}
+
+
+
+SearchStrategy.BFS expanded 485182 nodes and a path cost 34
+Initial state 		is [ pos = 18	boxes = 000000000000000000010000000010000000100000000000010111000000000000000000 ]
+Took Action.GO_RIGHT	to [ pos = 19	boxes = 000000000000000000001000000010000000100000000000010111000000000000000000 ] => C = 1
+Took Action.GO_UP	to [ pos = 11	boxes = 000000000000000000001000000010000000100000000000010111000000000000000000 ] => C = 2
+Took Action.GO_RIGHT	to [ pos = 12	boxes = 000000000000000000001000000010000000100000000000010111000000000000000000 ] => C = 3
+Took Action.GO_RIGHT	to [ pos = 13	boxes = 000000000000000000001000000010000000100000000000010111000000000000000000 ] => C = 4
+Took Action.GO_DOWN	to [ pos = 21	boxes = 000000000000000000001000000010000000100000000000010111000000000000000000 ] => C = 5
+Took Action.GO_DOWN	to [ pos = 29	boxes = 000000000000000000001000000010000000100000000000010111000000000000000000 ] => C = 6
+Took Action.GO_DOWN	to [ pos = 37	boxes = 000000000000000000001000000010000000100000000000010111000000000000000000 ] => C = 7
+Took Action.GO_DOWN	to [ pos = 45	boxes = 000000000000000000001000000010000000100000000000010111000000000000000000 ] => C = 8
+Took Action.GO_LEFT	to [ pos = 44	boxes = 000000000000000000001000000010000000100000000000010111000000000000000000 ] => C = 9
+Took Action.GO_DOWN	to [ pos = 52	boxes = 000000000000000000001000000010000000100000000000010101000000100000000000 ] => C = 10
+Took Action.GO_RIGHT	to [ pos = 53	boxes = 000000000000000000001000000010000000100000000000010100100000100000000000 ] => C = 11
+Took Action.GO_UP	to [ pos = 45	boxes = 000000000000000000001000000010000000100000000000010100100000100000000000 ] => C = 12
+Took Action.GO_UP	to [ pos = 37	boxes = 000000000000000000001000000010000000100000000000010100100000100000000000 ] => C = 13
+Took Action.GO_UP	to [ pos = 29	boxes = 000000000000000000001000000010000000100000000000010100100000100000000000 ] => C = 14
+Took Action.GO_UP	to [ pos = 21	boxes = 000000000000000000001000000010000000100000000000010100100000100000000000 ] => C = 15
+Took Action.GO_LEFT	to [ pos = 20	boxes = 000000000000000000010000000010000000100000000000010100100000100000000000 ] => C = 16
+Took Action.GO_LEFT	to [ pos = 19	boxes = 000000000000000000100000000010000000100000000000010100100000100000000000 ] => C = 17
+Took Action.GO_LEFT	to [ pos = 18	boxes = 000000000000000001000000000010000000100000000000010100100000100000000000 ] => C = 18
+Took Action.GO_RIGHT	to [ pos = 19	boxes = 000000000000000001000000000010000000100000000000010100100000100000000000 ] => C = 19
+Took Action.GO_DOWN	to [ pos = 27	boxes = 000000000000000001000000000010000000100000000000010100100000100000000000 ] => C = 20
+Took Action.GO_RIGHT	to [ pos = 28	boxes = 000000000000000001000000000001000000100000000000010100100000100000000000 ] => C = 21
+Took Action.GO_DOWN	to [ pos = 36	boxes = 000000000000000001000000000001000000000000001000010100100000100000000000 ] => C = 22
+Took Action.GO_RIGHT	to [ pos = 37	boxes = 000000000000000001000000000001000000000000001000010100100000100000000000 ] => C = 23
+Took Action.GO_DOWN	to [ pos = 45	boxes = 000000000000000001000000000001000000000000001000010100100000100000000000 ] => C = 24
+Took Action.GO_DOWN	to [ pos = 53	boxes = 000000000000000001000000000001000000000000001000010100100000100000000000 ] => C = 25
+Took Action.GO_LEFT	to [ pos = 52	boxes = 000000000000000001000000000001000000000000001000010100100000100000000000 ] => C = 26
+Took Action.GO_LEFT	to [ pos = 51	boxes = 000000000000000001000000000001000000000000001000011000100000100000000000 ] => C = 27
+Took Action.GO_DOWN	to [ pos = 59	boxes = 000000000000000001000000000001000000000000001000011000100000100000000000 ] => C = 28
+Took Action.GO_LEFT	to [ pos = 58	boxes = 000000000000000001000000000001000000000000001000011000100000100000000000 ] => C = 29
+Took Action.GO_LEFT	to [ pos = 57	boxes = 000000000000000001000000000001000000000000001000011000100000100000000000 ] => C = 30
+Took Action.GO_UP	to [ pos = 49	boxes = 000000000000000001000000000001000000000001001000001000100000100000000000 ] => C = 31
+Took Action.GO_UP	to [ pos = 41	boxes = 000000000000000001000000000001000100000000001000001000100000100000000000 ] => C = 32
+Took Action.GO_DOWN	to [ pos = 49	boxes = 000000000000000001000000000001000100000000001000001000100000100000000000 ] => C = 33
+Took Action.GO_RIGHT	to [ pos = 50	boxes = 000000000000000001000000000001000100000000001000000100100000100000000000 ] => C = 34
+Took 45.757279 to complete
