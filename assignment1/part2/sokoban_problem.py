@@ -90,6 +90,45 @@ class Heuristic:
     def hungarian_method(position, box_state, storage_locations, problem):
         return HungarianMethod(position, box_state, storage_locations, problem).solve()
 
+    @staticmethod
+    def suboptimal_search(position, box_state, storage_locations, problem):
+        box_indexes = box_state.search(ONE)
+        storage_indexes = storage_locations.search(ONE)
+
+        total_weight = 0
+        start_box = None
+        start_box_index = 0
+        for box_index in box_indexes:
+            dist_to_storage = float('inf')
+            for storage_index in storage_indexes:
+                box = (box_index // problem.column_count, box_index % problem.column_count)
+                s = (storage_index // problem.column_count, storage_index % problem.column_count)
+                d = Util.manhattan_distance(s, box)
+                if d < dist_to_storage:
+                    dist_to_storage = d
+                    start_box = box
+                    start_box_index = box_index
+            total_weight += dist_to_storage
+
+        prev_box = start_box
+        prev_box_index = start_box_index
+        while len(box_indexes) > 1:
+            box_indexes.remove(prev_box_index)
+            dist_to_box = float('inf')
+            temp_box = None
+            for box_index in box_indexes:
+                box = (box_index // problem.column_count, box_index % problem.column_count)
+                d = Util.manhattan_distance(prev_box, box)
+                if dist_to_box > d:
+                    temp_box = box
+                    prev_box_index = box_index
+                    dist_to_box = d
+
+            prev_box = temp_box
+            total_weight += dist_to_box
+
+        return total_weight*3
+
 class SokobanProblemState:
     def __init__(self, position, box_state, problem):
         if box_state.count(1) == 1:
