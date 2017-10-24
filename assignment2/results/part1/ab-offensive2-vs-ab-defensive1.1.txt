@@ -1,0 +1,433 @@
+initial board
+[W, W, W, W, W, W, W, W]
+[W, W, W, W, W, W, W, W]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[B, B, B, B, B, B, B, B]
+[B, B, B, B, B, B, B, B]
+PlayerName.WHITES moves
+[W, W, W, W, W, W, W, W]
+[W, W,  , W, W, W, W, W]
+[ ,  , W,  ,  ,  ,  ,  ]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[B, B, B, B, B, B, B, B]
+[B, B, B, B, B, B, B, B]
+
+
+
+PlayerName.BLACKS moves
+[W, W, W, W, W, W, W, W]
+[W, W,  , W, W, W, W, W]
+[ ,  , W,  ,  ,  ,  ,  ]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[B,  ,  ,  ,  ,  ,  ,  ]
+[ , B, B, B, B, B, B, B]
+[B, B, B, B, B, B, B, B]
+
+
+
+PlayerName.WHITES moves
+[W, W, W, W, W, W, W, W]
+[W, W,  ,  , W, W, W, W]
+[ ,  , W, W,  ,  ,  ,  ]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[B,  ,  ,  ,  ,  ,  ,  ]
+[ , B, B, B, B, B, B, B]
+[B, B, B, B, B, B, B, B]
+
+
+
+PlayerName.BLACKS moves
+[W, W, W, W, W, W, W, W]
+[W, W,  ,  , W, W, W, W]
+[ ,  , W, W,  ,  ,  ,  ]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[B,  ,  ,  ,  , B,  ,  ]
+[ , B, B, B, B, B,  , B]
+[B, B, B, B, B, B, B, B]
+
+
+
+PlayerName.WHITES moves
+[W, W, W, W, W, W, W, W]
+[W, W,  ,  ,  , W, W, W]
+[ ,  , W, W, W,  ,  ,  ]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[B,  ,  ,  ,  , B,  ,  ]
+[ , B, B, B, B, B,  , B]
+[B, B, B, B, B, B, B, B]
+
+
+
+PlayerName.BLACKS moves
+[W, W, W, W, W, W, W, W]
+[W, W,  ,  ,  , W, W, W]
+[ ,  , W, W, W,  ,  ,  ]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[ ,  ,  ,  ,  ,  , B,  ]
+[B,  ,  ,  ,  ,  ,  ,  ]
+[ , B, B, B, B, B,  , B]
+[B, B, B, B, B, B, B, B]
+
+
+
+PlayerName.WHITES moves
+[W, W, W, W, W, W, W, W]
+[W, W,  ,  ,  ,  , W, W]
+[ ,  , W, W, W, W,  ,  ]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[ ,  ,  ,  ,  ,  , B,  ]
+[B,  ,  ,  ,  ,  ,  ,  ]
+[ , B, B, B, B, B,  , B]
+[B, B, B, B, B, B, B, B]
+
+
+
+PlayerName.BLACKS moves
+[W, W, W, W, W, W, W, W]
+[W, W,  ,  ,  ,  , W, W]
+[ ,  , W, W, W, W,  ,  ]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[ ,  ,  ,  ,  ,  , B,  ]
+[B,  , B,  ,  ,  ,  ,  ]
+[ , B,  , B, B, B,  , B]
+[B, B, B, B, B, B, B, B]
+
+
+
+PlayerName.WHITES moves
+[W, W, W, W, W, W, W, W]
+[W, W,  ,  ,  ,  ,  , W]
+[ ,  , W, W, W, W, W,  ]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[ ,  ,  ,  ,  ,  , B,  ]
+[B,  , B,  ,  ,  ,  ,  ]
+[ , B,  , B, B, B,  , B]
+[B, B, B, B, B, B, B, B]
+
+
+
+PlayerName.BLACKS moves
+[W, W, W, W, W, W, W, W]
+[W, W,  ,  ,  ,  ,  , W]
+[ ,  , W, W, W, W, W,  ]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[ ,  ,  ,  ,  ,  , B,  ]
+[B, B, B,  ,  ,  ,  ,  ]
+[ ,  ,  , B, B, B,  , B]
+[B, B, B, B, B, B, B, B]
+
+
+
+PlayerName.WHITES moves
+[W, W, W, W, W, W, W, W]
+[W, W,  ,  ,  ,  ,  ,  ]
+[ ,  , W, W, W, W, W, W]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[ ,  ,  ,  ,  ,  , B,  ]
+[B, B, B,  ,  ,  ,  ,  ]
+[ ,  ,  , B, B, B,  , B]
+[B, B, B, B, B, B, B, B]
+
+
+
+PlayerName.BLACKS moves
+[W, W, W, W, W, W, W, W]
+[W, W,  ,  ,  ,  ,  ,  ]
+[ ,  , W, W, W, W, W, W]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[ ,  ,  ,  ,  ,  , B,  ]
+[B, B, B,  , B,  ,  ,  ]
+[ ,  ,  ,  , B, B,  , B]
+[B, B, B, B, B, B, B, B]
+
+
+
+PlayerName.WHITES moves
+[W, W,  , W, W, W, W, W]
+[W, W, W,  ,  ,  ,  ,  ]
+[ ,  , W, W, W, W, W, W]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[ ,  ,  ,  ,  ,  , B,  ]
+[B, B, B,  , B,  ,  ,  ]
+[ ,  ,  ,  , B, B,  , B]
+[B, B, B, B, B, B, B, B]
+
+
+
+PlayerName.BLACKS moves
+[W, W,  , W, W, W, W, W]
+[W, W, W,  ,  ,  ,  ,  ]
+[ ,  , W, W, W, W, W, W]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[ ,  ,  ,  ,  ,  , B,  ]
+[B, B, B,  , B,  ,  ,  ]
+[ ,  ,  , B, B, B,  , B]
+[B, B,  , B, B, B, B, B]
+
+
+
+PlayerName.WHITES moves
+[W, W,  , W, W, W, W, W]
+[W, W,  ,  ,  ,  ,  ,  ]
+[ , W, W, W, W, W, W, W]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[ ,  ,  ,  ,  ,  , B,  ]
+[B, B, B,  , B,  ,  ,  ]
+[ ,  ,  , B, B, B,  , B]
+[B, B,  , B, B, B, B, B]
+
+
+
+PlayerName.BLACKS moves
+[W, W,  , W, W, W, W, W]
+[W, W,  ,  ,  ,  ,  ,  ]
+[ , W, W, W, W, W, W, W]
+[ ,  ,  ,  ,  ,  ,  , B]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[B, B, B,  , B,  ,  ,  ]
+[ ,  ,  , B, B, B,  , B]
+[B, B,  , B, B, B, B, B]
+
+
+
+PlayerName.WHITES moves
+[W, W,  ,  , W, W, W, W]
+[W, W,  , W,  ,  ,  ,  ]
+[ , W, W, W, W, W, W, W]
+[ ,  ,  ,  ,  ,  ,  , B]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[B, B, B,  , B,  ,  ,  ]
+[ ,  ,  , B, B, B,  , B]
+[B, B,  , B, B, B, B, B]
+
+
+
+PlayerName.BLACKS moves
+[W, W,  ,  , W, W, W, W]
+[W, W,  , W,  ,  ,  ,  ]
+[ , W, W, W, W, W, W, W]
+[ ,  ,  ,  ,  ,  ,  , B]
+[ ,  ,  ,  ,  , B,  ,  ]
+[B, B, B,  ,  ,  ,  ,  ]
+[ ,  ,  , B, B, B,  , B]
+[B, B,  , B, B, B, B, B]
+
+
+
+PlayerName.WHITES moves
+[W, W,  ,  ,  , W, W, W]
+[W, W,  , W, W,  ,  ,  ]
+[ , W, W, W, W, W, W, W]
+[ ,  ,  ,  ,  ,  ,  , B]
+[ ,  ,  ,  ,  , B,  ,  ]
+[B, B, B,  ,  ,  ,  ,  ]
+[ ,  ,  , B, B, B,  , B]
+[B, B,  , B, B, B, B, B]
+
+
+
+PlayerName.BLACKS moves
+[W, W,  ,  ,  , W, W, W]
+[W, W,  , W, W,  ,  ,  ]
+[ , W, W, W, W, W, W, W]
+[ ,  ,  ,  ,  ,  ,  , B]
+[ ,  ,  ,  ,  , B,  ,  ]
+[B, B, B,  ,  , B,  ,  ]
+[ ,  ,  , B, B,  ,  , B]
+[B, B,  , B, B, B, B, B]
+
+
+
+PlayerName.WHITES moves
+[W, W,  ,  ,  ,  , W, W]
+[W, W,  , W, W, W,  ,  ]
+[ , W, W, W, W, W, W, W]
+[ ,  ,  ,  ,  ,  ,  , B]
+[ ,  ,  ,  ,  , B,  ,  ]
+[B, B, B,  ,  , B,  ,  ]
+[ ,  ,  , B, B,  ,  , B]
+[B, B,  , B, B, B, B, B]
+
+
+
+PlayerName.BLACKS moves
+[W, W,  ,  ,  ,  , W, W]
+[W, W,  , W, W, W,  ,  ]
+[ , W, W, W, W, W, W, W]
+[ ,  ,  ,  ,  ,  , B, B]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[B, B, B,  ,  , B,  ,  ]
+[ ,  ,  , B, B,  ,  , B]
+[B, B,  , B, B, B, B, B]
+
+
+
+PlayerName.WHITES moves
+[W, W,  ,  ,  ,  ,  , W]
+[W, W,  , W, W, W, W,  ]
+[ , W, W, W, W, W, W, W]
+[ ,  ,  ,  ,  ,  , B, B]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[B, B, B,  ,  , B,  ,  ]
+[ ,  ,  , B, B,  ,  , B]
+[B, B,  , B, B, B, B, B]
+
+
+
+PlayerName.BLACKS moves
+[W, W,  ,  ,  ,  ,  , W]
+[W, W,  , W, W, W, W,  ]
+[ , W, W, W, W, W, W, W]
+[ ,  ,  ,  ,  ,  , B, B]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[B, B, B,  ,  , B,  ,  ]
+[ , B,  , B, B,  ,  , B]
+[B,  ,  , B, B, B, B, B]
+
+
+
+PlayerName.WHITES moves
+[W, W,  ,  ,  ,  ,  , W]
+[W, W,  , W, W, W, W,  ]
+[ , W, W, W, W,  , W, W]
+[ ,  ,  ,  ,  , W, B, B]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[B, B, B,  ,  , B,  ,  ]
+[ , B,  , B, B,  ,  , B]
+[B,  ,  , B, B, B, B, B]
+
+
+
+PlayerName.BLACKS moves
+[W, W,  ,  ,  ,  ,  , W]
+[W, W,  , W, W, W, W,  ]
+[ , W, W, W, W,  , W, W]
+[ ,  ,  ,  ,  , W, B, B]
+[ , B,  ,  ,  ,  ,  ,  ]
+[B,  , B,  ,  , B,  ,  ]
+[ , B,  , B, B,  ,  , B]
+[B,  ,  , B, B, B, B, B]
+
+
+
+PlayerName.WHITES moves
+[W, W,  ,  ,  ,  ,  , W]
+[W, W,  , W,  , W, W,  ]
+[ , W, W, W, W, W, W, W]
+[ ,  ,  ,  ,  , W, B, B]
+[ , B,  ,  ,  ,  ,  ,  ]
+[B,  , B,  ,  , B,  ,  ]
+[ , B,  , B, B,  ,  , B]
+[B,  ,  , B, B, B, B, B]
+
+
+
+PlayerName.BLACKS moves
+[W, W,  ,  ,  ,  ,  , W]
+[W, W,  , W,  , W, W,  ]
+[ , W, W, W, W, W, W, W]
+[ , B,  ,  ,  , W, B, B]
+[ ,  ,  ,  ,  ,  ,  ,  ]
+[B,  , B,  ,  , B,  ,  ]
+[ , B,  , B, B,  ,  , B]
+[B,  ,  , B, B, B, B, B]
+
+
+
+PlayerName.WHITES moves
+[W, W,  ,  ,  ,  ,  , W]
+[W, W,  , W,  , W, W,  ]
+[ , W, W, W, W, W, W, W]
+[ , B,  ,  ,  ,  , B, B]
+[ ,  ,  ,  ,  , W,  ,  ]
+[B,  , B,  ,  , B,  ,  ]
+[ , B,  , B, B,  ,  , B]
+[B,  ,  , B, B, B, B, B]
+
+
+
+PlayerName.BLACKS moves
+[W, W,  ,  ,  ,  ,  , W]
+[W, W,  , W,  , W, W,  ]
+[ , W, W, W, W, W, W, W]
+[ , B,  ,  ,  ,  , B, B]
+[ ,  ,  ,  , B, W,  ,  ]
+[B,  , B,  ,  ,  ,  ,  ]
+[ , B,  , B, B,  ,  , B]
+[B,  ,  , B, B, B, B, B]
+
+
+
+PlayerName.WHITES moves
+[W, W,  ,  ,  ,  ,  , W]
+[W, W,  , W,  , W, W,  ]
+[ , W, W, W, W, W, W, W]
+[ , B,  ,  ,  ,  , B, B]
+[ ,  ,  ,  , B,  ,  ,  ]
+[B,  , B,  ,  , W,  ,  ]
+[ , B,  , B, B,  ,  , B]
+[B,  ,  , B, B, B, B, B]
+
+
+
+PlayerName.BLACKS moves
+[W, W,  ,  ,  ,  ,  , W]
+[W, W,  , W,  , W, W,  ]
+[ , W, W, W, W, W, W, W]
+[ , B,  ,  ,  ,  , B, B]
+[ ,  ,  ,  , B,  ,  ,  ]
+[B,  , B,  ,  , W,  ,  ]
+[ , B,  , B, B, B,  , B]
+[B,  ,  , B, B,  , B, B]
+
+
+
+PlayerName.WHITES moves
+[W, W,  ,  ,  ,  ,  , W]
+[W, W,  , W,  , W, W,  ]
+[ , W, W, W, W, W, W, W]
+[ , B,  ,  ,  ,  , B, B]
+[ ,  ,  ,  , B,  ,  ,  ]
+[B,  , B,  ,  ,  ,  ,  ]
+[ , B,  , B, B, B, W, B]
+[B,  ,  , B, B,  , B, B]
+
+
+
+PlayerName.BLACKS moves
+[W, W,  ,  ,  ,  ,  , W]
+[W, W,  , W,  , W, W,  ]
+[ , W, W, W, W, W, W, W]
+[ , B,  ,  ,  ,  , B, B]
+[ ,  ,  , B, B,  ,  ,  ]
+[B,  ,  ,  ,  ,  ,  ,  ]
+[ , B,  , B, B, B, W, B]
+[B,  ,  , B, B,  , B, B]
+
+
+
+PlayerName.WHITES moves
+[W, W,  ,  ,  ,  ,  , W]
+[W, W,  , W,  , W, W,  ]
+[ , W, W, W, W, W, W, W]
+[ , B,  ,  ,  ,  , B, B]
+[ ,  ,  , B, B,  ,  ,  ]
+[B,  ,  ,  ,  ,  ,  ,  ]
+[ , B,  , B, B, B,  , B]
+[B,  ,  , B, B, W, B, B]
+
+
+
+White stats AlphaBetaPlayer(moves made=18, avg time to move=0.6251119444444443, avg expanded nodes=7001.055555555556, total expanded nodes=126019)
+Black stats AlphaBetaPlayer(moves made=17, avg time to move=0.2683251176470587, avg expanded nodes=4787.294117647059, total expanded nodes=81384)
+Depth 4
+Action ordering in first level

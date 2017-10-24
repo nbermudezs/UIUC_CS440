@@ -1,0 +1,63 @@
+initial board
+[W, W, W, W, W, W, W, W, W, W]
+[W, W, W, W, W, W, W, W, W, W]
+[ ,  ,  ,  ,  ,  ,  ,  ,  ,  ]
+[B, B, B, B, B, B, B, B, B, B]
+[B, B, B, B, B, B, B, B, B, B]
+PlayerName.WHITES moves
+[W, W, W, W, W, W, W, W, W, W]
+[W, W, W, W, W, W, W,  , W, W]
+[ ,  ,  ,  ,  ,  ,  , W,  ,  ]
+[B, B, B, B, B, B, B, B, B, B]
+[B, B, B, B, B, B, B, B, B, B]
+
+
+
+PlayerName.BLACKS moves
+[W, W, W, W, W, W, W, W, W, W]
+[W, W, W, W, W, W, W,  , W, W]
+[ ,  ,  ,  ,  ,  , B, W,  ,  ]
+[B, B, B, B, B, B, B,  , B, B]
+[B, B, B, B, B, B, B, B, B, B]
+
+
+
+PlayerName.WHITES moves
+[W, W, W, W, W, W, W, W, W, W]
+[W, W, W, W, W, W, W,  , W,  ]
+[ ,  ,  ,  ,  ,  , B, W, W,  ]
+[B, B, B, B, B, B, B,  , B, B]
+[B, B, B, B, B, B, B, B, B, B]
+
+
+
+PlayerName.BLACKS moves
+[W, W, W, W, W, W, W, W, W, W]
+[W, W, W, W, W, B, W,  , W,  ]
+[ ,  ,  ,  ,  ,  ,  , W, W,  ]
+[B, B, B, B, B, B, B,  , B, B]
+[B, B, B, B, B, B, B, B, B, B]
+
+
+
+PlayerName.WHITES moves
+[W, W, W, W, W, W, W, W, W, W]
+[W, W, W,  , W, B, W,  , W,  ]
+[ ,  ,  , W,  ,  ,  , W, W,  ]
+[B, B, B, B, B, B, B,  , B, B]
+[B, B, B, B, B, B, B, B, B, B]
+
+
+
+PlayerName.BLACKS moves
+[W, W, W, W, W, W, B, W, W, W]
+[W, W, W,  , W,  , W,  , W,  ]
+[ ,  ,  , W,  ,  ,  , W, W,  ]
+[B, B, B, B, B, B, B,  , B, B]
+[B, B, B, B, B, B, B, B, B, B]
+
+
+
+White stats AlphaBetaPlayer(moves made=3, avg time to move=4.823682333333333, avg expanded nodes=126113.33333333333, total expanded nodes=378340)
+Black stats AlphaBetaPlayer(moves made=3, avg time to move=2.141427, avg expanded nodes=52594.666666666664, total expanded nodes=157784)
+Depth 5
