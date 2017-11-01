@@ -8,6 +8,8 @@ import Queue as q_module
 ############################SETUP START##############################
 #####################################################################
 
+EMPTY = "_"
+
 def loadenv(filename):
     grid = []
     with open(filename) as f:
@@ -66,7 +68,11 @@ def get_source_coords(env):
                 source_coords.append((r, c))
     return source_coords
 
-env = loadenv('input10102.txt')
+def get_shape(env):
+    return (len(env), len(env[ 0 ]))
+
+env = loadenv('input1214.txt')
+rows, cols = get_shape(env)
 inputs = ["input55.txt", "input77.txt", "input88.txt",
 "input991.txt", "input10101.txt", "input10102.txt",
 "input1212.txt", "input1214.txt", "input1414.txt"]
@@ -301,7 +307,7 @@ def pipe_has_open_end_facing_other(pipe_coord, other_coord, curr_pipe_type):
 
 def is_coord_in_bounds(coord, env):
     r, c = coord
-    return r >= 0 and r < len(env) and c >= 0 and c < len(env[0])
+    return r >= 0 and r < rows and c >= 0 and c < cols
 
 def is_assignment_complete(env, v_orientation_d, v_color_d):
     for r, line in enumerate(env):
@@ -393,8 +399,15 @@ def select_least_constraining_values(variable_coordinate, env, v_orientation_d, 
             v_color_d[variable_coordinate] = [v_color]
 
             val_sum = 0
-            cardinal_dirs = [(i-1, j), (i, j+1), (i+1, j), (i, j-1)]
-            cardinal_dirs = [cd for cd in cardinal_dirs if is_coord_in_bounds((cd[0], cd[1]), env)]
+            cardinal_dirs = []
+            if i > 0:
+                cardinal_dirs.append((i-1, j))
+            if i < rows - 1:
+                cardinal_dirs.append((i+1, j))
+            if j > 0:
+                cardinal_dirs.append((i, j-1))
+            if j < rows - 1:
+                cardinal_dirs.append((i, j+1))
 
             for cd in cardinal_dirs:
                 val_sum += count_variable_values(cd, env, v_orientation_d, v_color_d)
@@ -426,13 +439,23 @@ def get_actions(r, c):
 
 def get_valid_actions(curr_node, maze_map, color):
     r, c = curr_node
-    actions = get_actions(r, c)
-    return [action_coord for action_coord in actions if is_valid_action(action_coord, maze_map, color)]
+    valid = []
+    if r > 0 and (maze_map[r-1][c] == EMPTY or maze_map[r-1][c] == color):
+        valid.append((r-1,c))
+    if r < rows - 1 and (maze_map[r+1][c] == EMPTY or maze_map[r+1][c] == color):
+        valid.append((r+1,c))
+    if c > 0 and (maze_map[r][c-1] == EMPTY or maze_map[r][c-1] == color):
+        valid.append((r,c-1))
+    if c < cols - 1 and (maze_map[r][c+1] == EMPTY or maze_map[r][c+1] == color):
+        valid.append((r,c+1))
+    return valid
+    # actions = get_actions(r, c)
+    # return [action_coord for action_coord in actions if is_valid_action(action_coord, maze_map, color)]
 
 #helper method to get_valid_actions
 def is_valid_action(action_coord, maze_map, color):
     r, c = action_coord
-    if r >= 0 and r < len(maze_map) and c >= 0 and c < len(maze_map[0]) and (maze_map[r][c] == "_" or maze_map[r][c] == color):
+    if r >= 0 and r < rows and c >= 0 and c < cols and (maze_map[r][c] == EMPTY or maze_map[r][c] == color):
         return True
     return False
 
@@ -457,15 +480,14 @@ def bfs(source, target, env, color):
 
 
 def can_reach_sources(env, v_orientation_d, v_color_d):
-    flag = True
     for color in color_source_mapping:
         csm = color_source_mapping[color]
         s1 = csm[0]
         s2 = csm[1]
         if not bfs(s1, s2, env, color):
-            flag = False
+            return False
 
-    return flag
+    return True
 
 #v_orientation_d: variable_orientation_domains maps location to domain ['NE', 'SE', 'SW', 'NW', 'VE', 'HO'] or ['SO']
 #v_color_d: variable_color_domains maps location to the domain of colors given
@@ -507,7 +529,7 @@ def backtrack(env, v_orientation_d, v_color_d):
             #backtrack
             flag = True
             # if random.random() > 0.1:
-            # flag = can_reach_sources(env, v_orientation_d, v_color_d)
+            flag = can_reach_sources(env, v_orientation_d, v_color_d)
 
             if flag:
                 result = backtrack(env, v_orientation_d, v_color_d)
@@ -526,7 +548,17 @@ def backtrack(env, v_orientation_d, v_color_d):
 from datetime import datetime
 startTime = datetime.now()
 refresh_env(env)
+
+import cProfile, pstats, io
+pr = cProfile.Profile()
+pr.enable()
+
 backtrack_result = backtrack(env, v_orientation_d, v_color_d)
+
+pr.disable()
+sortby = 'cumtime'
+ps = pstats.Stats(pr).sort_stats(sortby)
+ps.print_stats()
 
 if backtrack_result == None:
     print("backtracking failed")
@@ -534,7 +566,7 @@ else:
     print("final result: ")
     print("variable assignments made: ", global_cnt[0])
     print("time")
-    print datetime.now() - startTime
+    print(datetime.now() - startTime)
     print()
     refresh_env_mod(env, v_orientation_d)
     refresh_env(env)
