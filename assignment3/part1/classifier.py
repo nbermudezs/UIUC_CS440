@@ -66,9 +66,14 @@ class DigitClassifier:
         return max(maps, key=lambda x:x[ 1 ])
 
     def evaluate(self, data):
+        correctly_predicted_count = 0
+        example_count = 0
         confusion_matrix = {}
         for (features, label, original) in data:
+            example_count += 1
             predicted_label, likelihood = self.predict(features)
+            if predicted_label == label:
+                correctly_predicted_count += 1
             self.add_to_confusion_matrix(confusion_matrix, label, predicted_label)
 
             highest = self.highest_likely_examples.get(predicted_label, (None, -inf))
@@ -80,7 +85,7 @@ class DigitClassifier:
             if likelihood < lowest[ 1 ]:
                 self.lowest_likely_examples[ predicted_label ] =\
                     (original, likelihood)
-        return confusion_matrix
+        return (confusion_matrix, correctly_predicted_count / example_count)
 
     def add_to_confusion_matrix(self, matrix, expected, predicted):
         row = matrix.get(expected, {})
