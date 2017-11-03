@@ -1,3 +1,6 @@
+__author__ = 'Nestor Bermudez'
+__email__ = 'nab6@illinois.edu, nestor.bermudezs@gmail.com'
+
 import matplotlib.pyplot as plt
 import numpy as np
 
