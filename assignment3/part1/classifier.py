@@ -9,11 +9,12 @@ import pdb
 inf = float('inf')
 
 class DigitClassifier:
-    def __init__(self, smoothing = 1):
+    def __init__(self, smoothing = 1, size = 28):
         self.distributions = {}
         self.class_frequencies = {}
         self.total_count = 0
         self.smoothing = smoothing
+        self.size = size
         self.highest_likely_examples = {}
         self.lowest_likely_examples = {}
 
@@ -86,3 +87,16 @@ class DigitClassifier:
         count = row.get(predicted, 0)
         row[ predicted ] = count + 1
         matrix[ expected ] = row
+
+    def features_likelihood(self, features, label):
+        class_dist = self.distributions[ label ]
+        matrix = []
+        for (idx, feature) in enumerate(features):
+            row = idx // self.size
+            if len(matrix) <= row:
+                matrix = [[]] + matrix
+            row = matrix[ 0 ]
+            dist = class_dist[ idx ]
+            value = dist.log_p_of(feature)
+            row.append(value)
+        return matrix
