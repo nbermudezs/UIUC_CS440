@@ -5,7 +5,7 @@ class SinglePixelFeatureExtractor:
     def items(self, dataset):
         for (matrix, label) in dataset:
             flatten = self.extract_from_item(matrix)
-            yield (flatten, label)
+            yield (flatten, label, matrix)
 
     def extract_from_item(self, item):
         return [(0 if item == ' ' else 1) for row in item for item in row]

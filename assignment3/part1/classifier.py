@@ -6,18 +6,22 @@ from probabilityDistribution import ProbabilityDistribution
 import math
 import pdb
 
+inf = float('inf')
+
 class DigitClassifier:
     def __init__(self, smoothing = 1):
         self.distributions = {}
         self.class_frequencies = {}
         self.total_count = 0
         self.smoothing = smoothing
+        self.highest_likely_examples = {}
+        self.lowest_likely_examples = {}
 
     def train(self, data):
         distributions = self.distributions
         class_frequencies = self.class_frequencies
 
-        for (features, label) in data:
+        for (features, label, _) in data:
             self.total_count += 1
 
             count = class_frequencies.get(label, 0)
@@ -62,9 +66,19 @@ class DigitClassifier:
 
     def evaluate(self, data):
         confusion_matrix = {}
-        for (features, label) in data:
+        for (features, label, original) in data:
             predicted_label, likelihood = self.predict(features)
             self.add_to_confusion_matrix(confusion_matrix, label, predicted_label)
+
+            highest = self.highest_likely_examples.get(predicted_label, (None, -inf))
+            if likelihood > highest[ 1 ]:
+                self.highest_likely_examples[ predicted_label ] =\
+                    (original, likelihood)
+
+            lowest = self.lowest_likely_examples.get(predicted_label, (None, inf))
+            if likelihood < lowest[ 1 ]:
+                self.lowest_likely_examples[ predicted_label ] =\
+                    (original, likelihood)
         return confusion_matrix
 
     def add_to_confusion_matrix(self, matrix, expected, predicted):

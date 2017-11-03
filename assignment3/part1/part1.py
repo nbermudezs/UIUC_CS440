@@ -18,4 +18,16 @@ if __name__ == '__main__':
     confusion_matrix = classifier.evaluate(extractor.items(evaluationData.items()))
     Util.print_confusion_matrix(confusion_matrix, 10, 10)
 
+    labels = sorted(list(classifier.highest_likely_examples.keys()))
+    for label in labels:
+        features,_ = classifier.highest_likely_examples[ label ]
+        print('Highest likelihood for class: ', label)
+        Util.print_matrix(features, 28, 28)
+        print('\n')
+
+        features,_ = classifier.lowest_likely_examples[ label ]
+        print('Lowest likelihood for class: ', label)
+        Util.print_matrix(features, 28, 28)
+        print('\n\n')
+
     pdb.set_trace()
