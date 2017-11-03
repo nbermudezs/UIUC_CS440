@@ -2,7 +2,7 @@ __author__ = 'Nestor Bermudez'
 __email__ = 'nab6@illinois.edu, nestor.bermudezs@gmail.com'
 
 from probabilityDistribution import ProbabilityDistribution
-
+from heatMap import HeatMap
 import math
 import pdb
 
@@ -100,3 +100,22 @@ class DigitClassifier:
             value = dist.log_p_of(feature)
             row.append(value)
         return matrix
+
+    """
+    label_a is the actual label
+    label_b is the predicted label
+    """
+    def odd_ratios(self, features, label_a, label_b, feature_value = 1):
+        result = []
+        for i in range(self.size):
+            result = [[]] + result
+            row = result[ 0 ]
+            for j in range(self.size):
+                index = i * self.size + j
+                feature = features[ index ]
+                dist_a = self.distributions[ label_a ][ index ]
+                dist_b = self.distributions[ label_b ][ index ]
+
+                ratio = dist_b.p_of(feature_value) / dist_a.p_of(feature_value)
+                row.append(math.log(ratio))
+        return result
