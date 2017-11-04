@@ -9,7 +9,7 @@ import pdb
 
 inf = float('inf')
 
-class DigitClassifier:
+class NaiveBayesClassifier:
     def __init__(self, smoothing = 1, size = 28):
         self.distributions = {}
         self.class_frequencies = {}
@@ -146,3 +146,5 @@ class DigitClassifier:
         likelihood_a = self.class_probabilities(label_a, feature_value)
         likelihood_b = self.class_probabilities(label_b, feature_value)
         return np.log(np.divide(likelihood_b, likelihood_a))
+
+DigitClassifier = NaiveBayesClassifier
