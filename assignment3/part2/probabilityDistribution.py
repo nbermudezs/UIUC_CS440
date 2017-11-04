@@ -10,6 +10,7 @@ class ProbabilityDistribution:
         self.smoothing = smoothing
 
     def add(self, feature):
+        self.laplacian_smoothing(feature)
         count = self.counts.get(feature, 0)
         count += 1
         self.total_count += 1
