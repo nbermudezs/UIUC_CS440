@@ -4,6 +4,7 @@ __email__ = 'nab6@illinois.edu, nestor.bermudezs@gmail.com'
 from probabilityDistribution import ProbabilityDistribution
 from heatMap import HeatMap
 import math
+import numpy as np
 import pdb
 
 inf = float('inf')
@@ -106,6 +107,22 @@ class DigitClassifier:
             row.append(value)
         return matrix
 
+    def model_likelihood(self, label, feature_value = 1):
+        return np.log(self.class_probabilities(label, feature_value))
+
+    def class_probabilities(self, label, feature_value = 1):
+        class_dist = self.distributions[ label ]
+        matrix = []
+        for (idx, feature_dist) in enumerate(class_dist):
+            row = idx // self.size
+            if len(matrix) <= row:
+                matrix = [[]] + matrix
+            row = matrix[ 0 ]
+            dist = class_dist[ idx ]
+            value = dist.p_of(feature_value)
+            row.append(value)
+        return matrix
+
     """
     label_a is the actual label
     label_b is the predicted label
@@ -124,3 +141,8 @@ class DigitClassifier:
                 ratio = dist_b.p_of(feature_value) / dist_a.p_of(feature_value)
                 row.append(math.log(ratio))
         return result
+
+    def model_odd_ratios(self, label_a, label_b, feature_value = 1):
+        likelihood_a = self.class_probabilities(label_a, feature_value)
+        likelihood_b = self.class_probabilities(label_b, feature_value)
+        return np.log(np.divide(likelihood_b, likelihood_a))
