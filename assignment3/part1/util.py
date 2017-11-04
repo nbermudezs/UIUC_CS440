@@ -1,6 +1,8 @@
 __author__ = 'Nestor Bermudez'
 __email__ = 'nab6@illinois.edu, nestor.bermudezs@gmail.com'
 
+from queue import PriorityQueue
+
 class Util:
     def print_matrix(matrix, rows, cols):
         import math, sys
@@ -35,3 +37,15 @@ class Util:
                 sys.stdout.write(sep + formatted)
                 sep = ', '
             sys.stdout.write(']\n')
+
+    def pick_pairs_for_inspection(confusion_matrix, count = 4):
+        queue = PriorityQueue()
+        for ref_label, row in confusion_matrix.items():
+            for label, value in row.items():
+                if ref_label == label:
+                    continue
+                queue.put((-value, (ref_label, label)))
+        result = []
+        for i in range(count):
+            result.append(queue.get()[ 1 ])
+        return result
