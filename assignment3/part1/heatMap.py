@@ -5,10 +5,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 class HeatMap:
-    def display(matrix):
+    def display(matrix, title = None):
         figure, axis = plt.subplots()
         im = axis.pcolormesh(matrix, cmap = 'jet')
         figure.colorbar(im)
+
+        if title:
+            figure.suptitle(title, fontsize = 14, fontweight = 'bold')
 
         axis.axis('tight')
         plt.show()
