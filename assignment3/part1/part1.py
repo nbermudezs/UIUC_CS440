@@ -24,12 +24,12 @@ if __name__ == '__main__':
     for label in labels:
         features,_ = classifier.highest_likely_examples[ label ]
         print('Highest likelihood for class: ', label)
-        Util.print_matrix(features, 28, 28)
+        Util.print_as_string(features, 28, 28)
         print('\n')
 
         features,_ = classifier.lowest_likely_examples[ label ]
         print('Lowest likelihood for class: ', label)
-        Util.print_matrix(features, 28, 28)
+        Util.print_as_string(features, 28, 28)
         print('\n\n')
 
     for_inspection = Util.pick_pairs_for_inspection(confusion_matrix)
