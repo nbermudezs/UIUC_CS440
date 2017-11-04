@@ -3,6 +3,7 @@ __email__ = 'nab6@illinois.edu, nestor.bermudezs@gmail.com'
 
 from classifier import DigitClassifier
 from singlePixelFeatureExtractor import SinglePixelFeatureExtractor
+from heatMap import HeatMap
 from parser import Parser
 from util import Util
 
@@ -31,4 +32,13 @@ if __name__ == '__main__':
         Util.print_matrix(features, 28, 28)
         print('\n\n')
 
-    pdb.set_trace()
+    for_inspection = Util.pick_pairs_for_inspection(confusion_matrix)
+    for ref_label, label in for_inspection:
+        likelihood = classifier.model_likelihood(ref_label)
+        HeatMap.display(likelihood, 'Log likelihood for class ' + str(ref_label))
+
+        likelihood = classifier.model_likelihood(label)
+        HeatMap.display(likelihood, 'Log likelihood for class ' + str(label))
+
+        ratios = classifier.model_odd_ratios(ref_label, label)
+        HeatMap.display(ratios, 'Log odd ratios between classes ' + str(ref_label) + ' and ' + str(label))
