@@ -20,16 +20,16 @@ class Util:
         format = '%5s'
 
         sep = '[   |'
-        for i in matrix.keys():
+        for i in sorted(matrix.keys()):
             formatted = (format % i)
             sys.stdout.write(sep + formatted)
             sep = '| '
         sys.stdout.write(']\n')
 
-        for i in matrix.keys():
+        for i in sorted(matrix.keys()):
             row_sum = sum(matrix.get(i, {}).values())
             sep = '[ ' + str(i) + ' |'
-            for j in matrix.keys():
+            for j in sorted(matrix.keys()):
                 val = matrix.get(i, {}).get(j, 0) / row_sum * 100.0
                 formatted = ('%5.1f' % val)
                 sys.stdout.write(sep + formatted)
