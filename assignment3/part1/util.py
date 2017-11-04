@@ -17,26 +17,40 @@ class Util:
                 sep = ', '
             sys.stdout.write(']\n')
 
-    def print_confusion_matrix(matrix, rows, cols):
+    def print_as_string(matrix, rows, cols):
+        result = ''
+        for row in matrix:
+            result += ''.join(row) + '\n'
+        print(result)
+
+    def print_confusion_matrix(matrix, rows, cols, show_legends = False):
         import math, sys
-        format = '%5.2f'
+        format = '%6.2f'
 
         sep = '[   |'
         for i in range(rows):
-            formatted = ('%5d' % i)
+            formatted = ('%6d' % i)
             sys.stdout.write(sep + formatted)
             sep = '| '
         sys.stdout.write(']\n')
 
-        for i in range(rows):
-            row_sum = sum(matrix.get(i, {}).values())
+        for i, key_i in enumerate(sorted(matrix.keys())):
+            row_sum = sum(matrix.get(key_i, {}).values())
             sep = '[ ' + str(i) + ' |'
-            for j in range(cols):
-                val = matrix.get(i, {}).get(j, 0) / row_sum * 100.0
+            for j, key_j in enumerate(sorted(matrix.keys())):
+                val = matrix.get(key_i, {}).get(key_j, 0) / row_sum * 100.0
                 formatted = (format % val)
                 sys.stdout.write(sep + formatted)
                 sep = ', '
             sys.stdout.write(']\n')
+
+        if show_legends:
+            print('Table legends: ', end='')
+            keys = sorted(matrix.keys())
+            for i, key in enumerate(keys):
+                print('class ' + str(i) + '=' + key + '; ', end='')
+            print('\n')
+
 
     def pick_pairs_for_inspection(confusion_matrix, count = 4):
         queue = PriorityQueue()
