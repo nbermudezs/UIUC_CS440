@@ -15,7 +15,7 @@ if __name__ == '__main__':
     classifier.train(extractor.items(digitParser.items()))
 
     evaluationData = Parser('digitdata/testimages', 'digitdata/testlabels', 28)
-    confusion_matrix, acc = classifier.evaluate(extractor.items(evaluationData.items()))
+    confusion_matrix, acc, _ = classifier.evaluate(extractor.items(evaluationData.items()))
     Util.print_confusion_matrix(confusion_matrix, 10, 10)
     print('Overall accuracy: ', round(acc * 100, 2))
 

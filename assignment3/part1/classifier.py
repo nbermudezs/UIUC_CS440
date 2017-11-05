@@ -86,7 +86,7 @@ class NaiveBayesClassifier:
             if likelihood < lowest[ 1 ]:
                 self.lowest_likely_examples[ predicted_label ] =\
                     (original, likelihood)
-        return (confusion_matrix, correctly_predicted_count / example_count)
+        return (confusion_matrix, correctly_predicted_count / example_count, example_count)
 
     def add_to_confusion_matrix(self, matrix, expected, predicted):
         row = matrix.get(expected, {})
