@@ -276,7 +276,133 @@ Now lets look at the model likelihood for each of the classes with highest confu
 \captionof{figure}{Log odd ratio of 8 over 3}
 \end{center}
 
+\pagebreak
 \subsection*{Part 1.2.}
+
+For this part I set the smoothing constant to 0.001 because, based on part 1.1, it seems like the lower the value the better the accuracy.
+
+\subsubsection*{Disjoint groups of pixels}
+I trained my classifier using disjoint groups of pixels of size 2x2, 2x4, 4x2 and 4x4. Here are the results.\\
+
+\begin{center}
+\begin{tabular}{cc|r|r|r|r|l}
+\cline{3-6}
+& & \multicolumn{4}{ c| }{Measure} \\ \cline{3-6}
+& & Accuracy & Train time & Eval time & Feature count \\ \cline{1-6}
+\multicolumn{1}{ |c  }{\multirow{5}{*}{Size} } &
+\multicolumn{1}{ |r| }{1x1} & 77.4\% & 13.08s & 11.21s & 784   \\ \cline{2-6}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |r| }{2x2} & 86.7\% & 5.68s & 3.52s & 196    \\ \cline{2-6}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |r| }{2x4} & 89.1\% & 3.55s & 1.95s & 98   \\ \cline{2-6}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |r| }{4x2} & 89.6\% & 3.9s & 2.04s & 98   \\ \cline{2-6}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |r| }{4x4} & 87.3\% & 3.1s & 1.23s & 49   \\ \cline{1-6}
+\end{tabular}
+\captionof{table}{Summary of performance for different pixel group sizes.}
+\end{center}
+
+\subsubsection*{Overlapping groups of pixels}
+First I tried multiple group size of overlapping group size and measured the accuracy, training and evaluation time. The results are presented in the following table.
+
+\begin{center}
+\begin{tabular}{cc|r|r|r|r|l}
+\cline{3-6}
+& & \multicolumn{4}{ c| }{Measure} \\ \cline{3-6}
+& & Accuracy & Train time & Eval time & Feature count \\ \cline{1-6}
+\multicolumn{1}{ |c  }{\multirow{8}{*}{Size} } &
+\multicolumn{1}{ |r| }{1x1} & 77.4\% & 13.02s & 11.89s & 784    \\ \cline{2-6}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |r| }{2x2} & 89.1\% & 18.98s & 14.14s & 729    \\ \cline{2-6}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |r| }{2x4} & 90.2\% & 24.35s & 15.05s & 675   \\ \cline{2-6}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |r| }{4x2} & 90.8\% & 26.70s & 15.97s & 675    \\ \cline{2-6}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |r| }{4x4} & 91.2\% & 34.61s & 17.09s & 625    \\ \cline{2-6}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |r| }{2x3} & 90.4\% & 21.26s & 14.12s & 702    \\ \cline{2-6}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |r| }{3x2} & 90.4\% & 23.87s & 15.12s & 702    \\ \cline{2-6}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |r| }{3x3} & 91.6\% & 27.01s & 16.01s & 676     \\ \cline{1-6}
+\end{tabular}
+\captionof{table}{Summary of performance for different pixel group sizes.}
+\end{center}
+
+Now lets look at some of the trends on these results.\\
+\begin{center}
+\includegraphics[scale=0.8]{part1/2/overlap_accuracy_2.png}
+\captionof{figure}{Line chart for the accuracy of different group sizes.}
+\end{center}
+
+The group sizes were sorted increasingly based on the number of pixels in the group. \\
+Overall, it seems that the accuracy is positively correlated to the size of the group. Which makes sense but if we were to keep increasing the size we may end up over-fitting our data. For our particular data, 3x3 seems to be a good size.\\
+
+Now, lets see the training time.
+\begin{center}
+\includegraphics[scale=0.8]{part1/2/overlap_train_2.png}
+\captionof{figure}{Line chart for the training time of different group sizes.}
+\end{center}
+
+Again, it seems to be a positive correlation between group size and the time it takes the model to train. This makes sense because, as explained in the assignment description, when using a $n$x$m$ group size we would have $2^{nm}$ different values.
+
+Finally, this is how the test time is impacted.
+\begin{center}
+\includegraphics[scale=0.8]{part1/2/overlap_eval_2.png}
+\captionof{figure}{Line chart for the evaluation time of different group sizes.}
+\end{center}
+
+The evaluation time does increase as the size of the group increased because there are more features to evaluate but note that its growth seems to be slower, probably linear, compared to the previous two measurements.\\
+
+In all cases, going from single pixel to 2x2 represents a very significant improvement.\\
+
+\textbf{Why this works?}\\
+Having a bigger group size means that the feature can encode information like the convexity of a portion of the image (the bottom part of digit 8 for example) and the existence of line segments (strokes for digits 4 and 7 for instance). This creates more ways to differentiate between similar digits.\\
+
+\textbf{Note:} more details on each of the trials can be found under the \textit{results} folder. This includes the most and least prototypical digits per class and the confusion matrix.
+
+\subsubsection*{Disjoint vs Overlapping comparison}
+Now lets see how performance differs depending on which type of grouping we use.\\
+
+This is a plot of the accuracy for both types:
+\begin{center}
+\includegraphics[scale=0.8]{part1/2/comparison_accuracy.png}
+\captionof{figure}{Line chart comparing accuracy of overlapping vs disjoint grouping.}
+\end{center}
+
+We can see that using overlapping groups outperforms disjoint groups on every size. Not by much though. I think this happens for two reasons: (1) by overlapping we are relaxing the independence condition of Naive Bayes and (2) the number of features is greater.\\
+
+And now lets look at the training time.
+\begin{center}
+\includegraphics[scale=0.8]{part1/2/comparison_train.png}
+\captionof{figure}{Line chart comparing training time of overlapping vs disjoint grouping.}
+\end{center}
+
+As expected, the training time for the disjoint groups is way lower than for the overlapping ones. The reason is that the greater the size of the group, the less disjoint groups there will be.\\
+
+At the end of the day, it is always a trade-off between speed and accuracy. If I had to choose one for this dataset I'd chose the disjoint ones because it runs as much as 10 times faster and the accuracy is still within acceptable ranges.\\
+
+\subsubsection*{Time vs feature count}
+Finally, lets have a look at how the training time relates to the number of features.
+
+For overlapping groups:\\
+\begin{center}
+\includegraphics[scale=0.8]{part1/2/overlap_time_feature.png}
+\captionof{figure}{Line chart showing the relation between training time and feature count. \\Note: feature count has been scaled by 0.1 so that the chart will be more readable.}
+\end{center}
+
+The reasoning for this relation is that even though the number of features is decreasing, it doesn't decrease too fast and, in the meanwhile, the information each feature encodes is greater so it takes longer to create the feature.
+
+For disjoint groups:\\
+For overlapping groups:\\
+\begin{center}
+\includegraphics[scale=0.8]{part1/2/disjoint_time_feature.png}
+\captionof{figure}{Line chart showing the relation between training time and feature count. \\ Feature count has been scaled by 0.1 so that the chart will be more readable.}
+\end{center}
+
+Just like for overlapping groups, the information each feature encodes is greater but in this case the number of features decreases very quickly compared to the overlapping case and therefore the training time decreases.
 
 \subsection*{Extra Credit}
 
