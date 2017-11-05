@@ -490,8 +490,35 @@ And these are the most and least prototypical examples from the test data:\\
 
 \pagebreak
 \section*{Part 2}
+This part deals with classifying ASCII representations of spoken words, first Hebrew for yes and no and then digits. \\
 
 \subsection*{Part 2.1}
+
+Most of the details for this are borrowed from the work for Part 1.
+
+\subsubsection*{Implementation details}
+The classifier is exactly the same as the one used for Part 1, except for some some unused code that was removed.\\
+
+I created a new parser class to read from the input files and generate the (features, label) tuples in the format expected by my classifier.\\
+
+My \textbf{ProbabilityDistribution} and \textbf{SingleBlockFeatureExtractor} classes are also the same as for Part 1.
+
+\subsubsection*{Confusion matrix}
+
+\begin{center}
+\begin{tabular}{cc|r|r|l}
+\cline{3-4}
+& & \multicolumn{2}{ c| }{Predicted class} \\ \cline{3-4}
+& & yes & no  \\ \cline{1-4}
+\multicolumn{1}{ |c  }{\multirow{2}{*}{Class} } &
+\multicolumn{1}{ |r| }{yes} & 96 & 4    \\ \cline{2-4}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |c| }{no} & 4 & 96  \\ \cline{1-4}
+\end{tabular}
+\captionof{table}{Confusion matrix for Hebrew yes/no data.}
+\end{center}
+
+\textbf{Overall accuracy: }: \textbf{96\%}
 
 \subsection*{Part 2.2}
 
