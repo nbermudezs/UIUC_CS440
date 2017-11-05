@@ -27,16 +27,22 @@ class TernaryFeatureExtractor:
                 if col + self.group_cols > size_cols:
                     break
                 feature = ''
+                binary_feature = ''
                 for delta_r in range(self.group_rows):
                     for delta_c in range(self.group_cols):
                         feature += self.get_value(item, row + delta_r, col + delta_c)
+                        binary_feature += self.get_binary_value(item, row + delta_r, col + delta_c)
                 features.append(feature)
+                features.append(binary_feature)
                 col += self.group_cols if self.disjoint else 1
             row += self.group_rows if self.disjoint else 1
         return features
 
     def get_value(self, matrix, row, col):
         return matrix[ row ][ col ]
+
+    def get_binary_value(self, matrix, row, col):
+        return '0' if matrix[ row ][ col ] == EMPTY else '1'
 
 if __name__ == '__main__':
     import pdb
@@ -58,14 +64,16 @@ if __name__ == '__main__':
 
     features, _, _ = next(extractor.items(dataset))
     assert features[ 0 ] == ' + +'
-    assert features[ 1 ] == '+ +#'
+    assert features[ 1 ] == '0101'
+    assert features[ 2 ] == '+ +#'
 
     # Test disjoint extractor
     extractor = TernaryFeatureExtractor(disjoint = True)
 
     features, _, _ = next(extractor.items(dataset))
     assert features[ 0 ] == ' + +'
-    assert features[ 1 ] == '  # '
+    assert features[ 1 ] == '0101'
+    assert features[ 2 ] == '  # '
 
     # Test non-square pixel grouping
     item_1 = [
@@ -85,4 +93,5 @@ if __name__ == '__main__':
 
     features, _, _ = next(extractor.items(dataset))
     assert features[ 0 ] == ' +   +# #+# '
-    assert features[ 1 ] == '+  #+# ++# #'
+    assert features[ 1 ] == '010001101110'
+    assert features[ 2 ] == '+  #+# ++# #'

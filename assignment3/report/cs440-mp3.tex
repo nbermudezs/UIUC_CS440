@@ -279,7 +279,7 @@ Now lets look at the model likelihood for each of the classes with highest confu
 \pagebreak
 \subsection*{Part 1.2.}
 
-For this part I set the smoothing constant to 0.001 because, based on part 1.1, it seems like the lower the value the better the accuracy.
+For this part I set the smoothing constant to 0.001 because, based on part 1.1, it seems like the lower the value the better the accuracy. For the selected group we would have a small matrix, the feature is the result of traversing the matrix from left to right, top to bottom and create a string with the binary values in that order.
 
 \subsubsection*{Disjoint groups of pixels}
 I trained my classifier using disjoint groups of pixels of size 2x2, 2x4, 4x2 and 4x4. Here are the results.\\
@@ -405,6 +405,47 @@ For overlapping groups:\\
 Just like for overlapping groups, the information each feature encodes is greater but in this case the number of features decreases very quickly compared to the overlapping case and therefore the training time decreases.
 
 \subsection*{Extra Credit}
+For the first extra credit I implemented the recommended ternary features. \\
+For this I created a new class called \textbf{TernaryFeatureExtractor} which uses the three different values found on each example (+, \# and space). It also support pixel grouping. The statistics shown here are the result of using a 3x3 pixel group size and a smoothing constant of 0.001. These values were chosen based on the results obtained from the previous sections.\\
+
+I tried two variations of my \textbf{TernaryFeatureExtractor}:\\
+\textbf{Ternary only}: when traversing the pixel group I just take the pixel type and concatenate to create the feature.\\
+Using this feature I could never get the accuracy over 89\%, tried the same group sizes from part 1.2 and different smoothing constants but it never went higher.
+
+\textbf{Ternary and binary}: instead of just using the new ternary features I use double amount of features and add back the binary features from part 1.1 and 1.2. Using this finally got the accuracy to 90.2\%. \\
+
+The performance was better than part 1.1 but not better than part 1.2. This is the confusion matrix.\\
+
+\begin{center}
+
+\begin{tabular}{cc|r|r|r|r|r|r|r|r|r|r|l}
+\cline{3-12}
+& & \multicolumn{10}{ c| }{Predicted class} \\ \cline{3-12}
+& & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9  \\ \cline{1-12}
+\multicolumn{1}{ |c  }{\multirow{10}{*}{Class} } &
+\multicolumn{1}{ |r| }{0} & 96.7 & 0 & 0 & 0 & 0 & 0 & 1.11 & 0 & 2.22 & 0    \\ \cline{2-12}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |c| }{1} & 0 & 96.3 & 0.93 & 0 & 0.93 & 0 & 0.93 & 0 & 0.93 & 0    \\ \cline{2-12}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |c| }{2} & 0.97 & 0 & 91.26 & 0.97 &  0 & 0 & 1.94 & 0.97 & 3.88 & 0    \\ \cline{2-12}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |c| }{3} & 0 & 0 & 1 & 92 &  0 & 3 & 0 & 1 & 1 & 2    \\ \cline{2-12}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |c| }{4} & 0 & 0 & 0 & 0 &  94.39 & 0 & 1.87 & 0.93 & 0 & 2.8    \\ \cline{2-12}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |c| }{5} & 1.09 & 0 & 1.09 & 4.35 &  0 & 86.96 & 0 & 1.09 & 4.35 & 1.09    \\ \cline{2-12}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |c| }{6} & 1.1 & 1.1 & 0 & 0 &  0 & 5.49 & 91.21 & 0 & 1.1 & 0    \\ \cline{2-12}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |c| }{7} & 0 & 2.83 & 3.77 & 0 &  0.94 & 0.94 & 0 & 79.25 & 1.89 & 10.38    \\ \cline{2-12}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |c| }{8} & 0.97 & 0 & 2.91 & 7.77 &  0.97 & 0.97 & 0 & 0.97 & 85.44 & 0    \\ \cline{2-12}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |c| }{9} & 1 & 0 & 0 & 2 &  3 & 1 & 0 & 0 & 4 & 89    \\ \cline{1-12}
+\end{tabular}
+\captionof{table}{Confusion matrix using smoothing constant 0.001. Values are percentages.}
+
+\end{center}
 
 \section*{Part 2}
 
