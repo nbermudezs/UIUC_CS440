@@ -492,14 +492,16 @@ And these are the most and least prototypical examples from the test data:\\
 \section*{Part 2}
 This part deals with classifying ASCII representations of spoken words, first Hebrew for yes and no and then digits. \\
 
+\textbf{SingleBlockFeatureExtractor} is almost identical to \textbf{SinglePixelFeatureExtractor} used in Part 1, except for the character-binary mapping.
+
 \subsection*{Part 2.1}
 
-Most of the details for this are borrowed from the work for Part 1.
+Most of the details for this are borrowed from the work for Part 1. Basically, the only changes where on how to process the input files and feed the features into the classifier.
 
 \subsubsection*{Implementation details}
 The classifier is exactly the same as the one used for Part 1, except for some some unused code that was removed.\\
 
-I created a new parser class to read from the input files and generate the (features, label) tuples in the format expected by my classifier.\\
+I created a new parser class to read from the input files and generate the (features, label) tuples in the format expected by my classifier.\\ This parser class takes care of ignoring the 3 blank lines separating each entry in the data files.\\
 
 My \textbf{ProbabilityDistribution} and \textbf{SingleBlockFeatureExtractor} classes are also the same as for Part 1.
 
@@ -518,9 +520,39 @@ My \textbf{ProbabilityDistribution} and \textbf{SingleBlockFeatureExtractor} cla
 \captionof{table}{Confusion matrix for Hebrew yes/no data.}
 \end{center}
 
-\textbf{Overall accuracy: }: \textbf{96\%}
+\textbf{Overall accuracy }: \textbf{96\%}\\
+
+For this dataset it seems like the smoothing constant is not so relevant. I tried values between 0.001 and 5 and the accuracy remaining at 96\%.
 
 \subsection*{Part 2.2}
+
+\subsubsection*{Implementation}
+Again, just like in the previous section, I used the same classifier and implemented the appropriate parser class (\textbf{DigitAudioParser}). 
+
+\subsubsection*{Confusion matrix}
+
+\begin{center}
+\begin{tabular}{cc|r|r|r|r|r|l}
+\cline{3-7}
+& & \multicolumn{5}{ c| }{Predicted class} \\ \cline{3-7}
+& & 1 & 2 & 3 & 4 & 5  \\ \cline{1-7}
+\multicolumn{1}{ |c  }{\multirow{5}{*}{Class} } &
+\multicolumn{1}{ |r| }{1} & 87.5 & 0 & 12.5 & 0 & 0    \\ \cline{2-7}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |r| }{2} & 0 & 100 & 0 & 0 & 0    \\ \cline{2-7}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |r| }{3} & 0 & 0 & 100 & 0 & 0    \\ \cline{2-7}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |r| }{4} & 0 & 37.5 & 0 & 62.5 & 0    \\ \cline{2-7}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |c| }{5} & 0 & 0 & 12.5 & 0 & 87.5  \\ \cline{1-7}
+\end{tabular}
+\captionof{table}{Confusion matrix for audio input of digits between 1 and 5. Values are percentages}
+\end{center}
+
+\textbf{Overall accuracy}: \textbf{87.5\%}\\
+
+Full output can be found under the results folder and it contains the most and least prototypical examples for both Part 2.1 and 2.2.
 
 \subsection*{Extra Credit}
 
