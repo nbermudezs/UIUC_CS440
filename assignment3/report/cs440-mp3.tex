@@ -405,6 +405,9 @@ For overlapping groups:\\
 Just like for overlapping groups, the information each feature encodes is greater but in this case the number of features decreases very quickly compared to the overlapping case and therefore the training time decreases.
 
 \subsection*{Extra Credit}
+
+\subsubsection*{Ternary feature}
+
 For the first extra credit I implemented the recommended ternary features. \\
 For this I created a new class called \textbf{TernaryFeatureExtractor} which uses the three different values found on each example (+, \# and space). It also support pixel grouping. The statistics shown here are the result of using a 3x3 pixel group size and a smoothing constant of 0.001. These values were chosen based on the results obtained from the previous sections.\\
 
@@ -447,6 +450,45 @@ The performance was better than part 1.1 but not better than part 1.2. This is t
 
 \end{center}
 
+\subsubsection*{Face Data}
+For the Face Data, I created a new \textbf{Parser} class that reads the files (data and labels) and generates tuple ready for the classifier training. I decided to first try the best setup found for the previous sections: smoothing constant=0.001 and pixel group size of 3x3. \\
+
+Turns out that with this setup I could achieve \textbf{96\%} accuracy on the face data. This is the confusion matrix.
+
+\begin{center}
+
+\begin{tabular}{cc|r|r|l}
+\cline{3-4}
+& & \multicolumn{2}{ c| }{Predicted class} \\ \cline{3-4}
+& & face & non-face  \\ \cline{1-4}
+\multicolumn{1}{ |c  }{\multirow{2}{*}{Class} } &
+\multicolumn{1}{ |r| }{face} & 93.15 & 6.85    \\ \cline{2-4}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |c| }{non-face} & 1.3 & 98.7  \\ \cline{1-4}
+\end{tabular}
+\captionof{table}{Confusion matrix for Face Data.}
+
+\end{center}
+
+And these are the most and least prototypical examples from the test data:\\
+
+\begin{center}
+\includegraphics[scale=0.6]{part1/extra/high_face.png}
+\end{center}
+
+\begin{center}
+\includegraphics[scale=0.6]{part1/extra/low_face.png}
+\end{center}
+
+\begin{center}
+\includegraphics[scale=0.6]{part1/extra/high_nonface.png}
+\end{center}
+
+\begin{center}
+\includegraphics[scale=0.6]{part1/extra/low_nonface.png}
+\end{center}
+
+\pagebreak
 \section*{Part 2}
 
 \subsection*{Part 2.1}
