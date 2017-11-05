@@ -20,7 +20,7 @@ def train(smoothing):
 
     evaluation_time = -time.clock()
     evaluationData = Parser('digitdata/testimages', 'digitdata/testlabels', 28)
-    confusion_matrix, acc, count = classifier.evaluate(extractor.items(evaluationData.items()))
+    confusion_matrix, acc, count, _ = classifier.evaluate(extractor.items(evaluationData.items()))
     evaluation_time += time.clock()
     return acc * 100, training_time, evaluation_time, count
 
@@ -62,7 +62,7 @@ if __name__ == '__main__':
     classifier.train(extractor.items(digitParser.items()))
 
     evaluationData = Parser('digitdata/testimages', 'digitdata/testlabels', 28)
-    confusion_matrix, acc, _ = classifier.evaluate(extractor.items(evaluationData.items()))
+    confusion_matrix, acc, _, _ = classifier.evaluate(extractor.items(evaluationData.items()))
     Util.print_confusion_matrix(confusion_matrix, 10, 10)
     print('Overall accuracy: ', round(acc * 100, 2))
 
