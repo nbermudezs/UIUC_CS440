@@ -23,13 +23,11 @@ if __name__ == '__main__':
     for label in labels:
         features,_ = classifier.highest_likely_examples[ label ]
         print('Highest likelihood for class: ', label)
-        Util.print_matrix(features, 25, 10)
+        Util.print_as_string(features, 25, 10)
         print('\n')
 
         features,_ = classifier.lowest_likely_examples[ label ]
         print('Lowest likelihood for class: ', label)
-        Util.print_matrix(features, 25, 10)
+        Util.print_as_string(features, 25, 10)
         print('------------------------------')
         print('\n\n')
-
-    pdb.set_trace()

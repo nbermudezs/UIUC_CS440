@@ -15,6 +15,12 @@ class Util:
                 sep = ', '
             sys.stdout.write(']\n')
 
+    def print_as_string(matrix, rows, cols):
+        result = ''
+        for row in matrix:
+            result += ''.join(row) + '\n'
+        print(result)
+
     def print_confusion_matrix(matrix, rows, cols):
         import math, sys
         format = '%5s'
