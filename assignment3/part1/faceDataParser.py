@@ -21,7 +21,7 @@ class FaceDataParser:
                     face_matrix.append(list(line.replace('\n', '')))
                     if index % height == height - 1:
                         label = int(labels_file.readline().replace('\n', ''))
-                        yield (face_matrix, 'face' if label == 0 else 'non-face')
+                        yield (face_matrix, 'non-face' if label == 0 else 'face')
                         face_matrix = []
 
 if __name__ == '__main__':

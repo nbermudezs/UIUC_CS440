@@ -10,8 +10,8 @@ if __name__ == '__main__':
     import pdb
 
     parser = FaceDataParser('extradata/facedatatrain', 'extradata/facedatatrainlabels')
-    extractor = PixelGroupFeatureExtractor(2, 2)
-    classifier = NaiveBayesClassifier(smoothing = 5)
+    extractor = PixelGroupFeatureExtractor(3, 3)
+    classifier = NaiveBayesClassifier(smoothing = 0.001)
     classifier.train(extractor.items(parser.items()))
 
     evaluationData = FaceDataParser('extradata/facedatatest', 'extradata/facedatatestlabels')
