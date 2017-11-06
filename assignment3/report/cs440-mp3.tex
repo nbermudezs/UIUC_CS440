@@ -558,4 +558,30 @@ Note: all the \textbf{Parser} and \textbf{FeatureExtractor} classes have main bl
 
 \subsection*{Extra Credit}
 
+\subsubsection*{Column average features}
+The third bullet in the write-up asks us extract features from the data by taking the average of each of the columns and have a vector formed by them as our feature vector.\\
+
+To do this I just created a new feature extractor class which I called \textbf{AverageVectorFeatureExtractor}. It is rather simple, it iterates over the matrix representation of the example and keeps a count of high energy values on each column. Then it divides by the column size (25). \\
+
+The rest of the code remained the same except for my choice of smoothing constant. I tried multiple values ranging from 0.1 to 10 and the best accuracy was achieved when using \textbf{0.25}.\\
+
+\textbf{Overall accuracy}: \textbf{88\%} (8\% lower than my implementation for part 2.1)\\
+
+Now, as hinted in the assignment write-up, the computational complexity was definitely improved.\\
+For Part 2.1 the average training time was \textbf{129.26ms} while the new feature extractor caused the training time to drop to \textbf{24.8ms}. That is a \textbf{500\%} improvement!\\
+
+Finally, this is the confusion matrix:
+\begin{center}
+\begin{tabular}{cc|r|r|}
+\cline{3-4}
+& & \multicolumn{2}{ c| }{Predicted} \\ \cline{3-4}
+& & yes & no  \\ \cline{1-4}
+\multicolumn{1}{ |c  }{\multirow{2}{*}{Expected} } &
+\multicolumn{1}{ |r| }{yes} & 88 & 12    \\ \cline{2-4}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |c| }{no} & 12 & 88  \\ \cline{1-4}
+\end{tabular}
+\captionof{table}{Confusion matrix for Hebrew yes/no data using column average features.}
+\end{center}
+
 \end{document}
