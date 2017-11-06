@@ -2,7 +2,7 @@ __author__ = 'Nestor Bermudez'
 __email__ = 'nab6@illinois.edu, nestor.bermudezs@gmail.com'
 
 from classifier import NaiveBayesClassifier
-from singleBlockFeatureExtractor import SingleBlockFeatureExtractor
+from averageVectorFeatureExtractor import AverageVectorFeatureExtractor
 from parser import Parser
 from util import Util
 
@@ -12,8 +12,8 @@ if __name__ == '__main__':
 
     start = time.clock()
     parser = Parser('part1data/yes_train.txt', 'part1data/no_train.txt')
-    extractor = SingleBlockFeatureExtractor()
-    classifier = NaiveBayesClassifier(smoothing = 5)
+    extractor = AverageVectorFeatureExtractor()
+    classifier = NaiveBayesClassifier(smoothing = 0.25)
     classifier.train(extractor.items(parser.items()))
     print('Training time: ' + str((time.clock() - start) * 1000) + 'ms')
 
