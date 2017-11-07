@@ -524,6 +524,7 @@ My \textbf{ProbabilityDistribution} and \textbf{SingleBlockFeatureExtractor} cla
 
 For this dataset it seems like the smoothing constant is not so relevant. I tried values between 0.001 and 5 and the accuracy remaining at 96\%.
 
+\pagebreak
 \subsection*{Part 2.2}
 
 \subsubsection*{Implementation}
@@ -557,6 +558,32 @@ Full output can be found under the results folder and it contains the most and l
 Note: all the \textbf{Parser} and \textbf{FeatureExtractor} classes have main blocks that perform a few tests to ensure the output of the functions are the ones I was expecting. To execute it you just need to run that particular file.
 
 \subsection*{Extra Credit}
+Three possible extra credits were available for implementation. In this section I'll explain the implementation details of all 3, the corresponding confusion matrix and overall accuracy.
+
+\subsubsection*{Fisher's Linear Discriminant Analysis}
+As suggested, I implemented the Fisher's Linear Discriminant as my second classifier. I understood the theory behind it by following Prof. Veksler\footnote{\url{http://www.csd.uwo.ca/~olga/Courses/CS434a_541a/Lecture8.pdf}} from Western University in Canada. \\
+
+Most of the linear algebra operations, like taking a dot product or the inverse of a matrix was done using NumPy\footnote{\url{http://www.numpy.org/}}. \\
+The implementation itself lives under the \textbf{FisherLDAClassifier} class and it has the same methods and function signatures as my Naive Bayes classifier to easily switch from one to another.\\ 
+
+I confirmed my implementation with the example described in Prof. Veksler slides but when I tried to train it with the yes/no dataset it would not work because the \textit{Within class scatter matrix} would be singular and I could not take the inverse. \\
+After further reading (\href{https://stats.stackexchange.com/questions/247720/why-is-within-class-scatter-matrix-in-lda-singular}{here} and \href{https://stats.stackexchange.com/questions/169685/when-is-the-scatter-matrix-in-linear-discriminant-analysis-singular}{here}) I learned that it is a rather common problem when using Linear Discriminant Analysis when the number of examples is too small compared to the number of features. \\
+As per one of the answers in the previous links, I decided to use a pseudo inverse (Moore-Penrose) to work around this problem. \\
+
+After making that change the classifier could be trained and evaluated. Its accuracy was \textbf{81\%}: lower than the Naive Bayes classifier. And its confusion matrix is shown below.
+
+\begin{center}
+\begin{tabular}{cc|r|r|l}
+\cline{3-4}
+& & \multicolumn{2}{ c| }{Predicted class} \\ \cline{3-4}
+& & yes & no  \\ \cline{1-4}
+\multicolumn{1}{ |c  }{\multirow{2}{*}{Class} } &
+\multicolumn{1}{ |r| }{yes} & 82 & 18    \\ \cline{2-4}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |c| }{no} & 20 & 80  \\ \cline{1-4}
+\end{tabular}
+\captionof{table}{Confusion matrix for Hebrew yes/no data using Fisher's LDA classifier.}
+\end{center}
 
 \subsubsection*{Column average features}
 The third bullet in the write-up asks us extract features from the data by taking the average of each of the columns and have a vector formed by them as our feature vector.\\
