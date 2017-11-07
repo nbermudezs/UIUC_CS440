@@ -4,9 +4,13 @@ __email__ = 'nab6@illinois.edu, nestor.bermudezs@gmail.com'
 BLANK = ' '
 
 class SingleBlockFeatureExtractor:
+    def __init__(self, label_mapping = None):
+        self.label_mapping = label_mapping
+
     def items(self, dataset):
         for (matrix, label) in dataset:
             flatten = self.extract_from_item(matrix)
+            label = self.label_mapping(label) if self.label_mapping else label
             yield (flatten, label, matrix)
 
     def extract_from_item(self, item):
