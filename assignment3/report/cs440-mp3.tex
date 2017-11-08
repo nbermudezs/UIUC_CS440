@@ -560,6 +560,41 @@ Note: all the \textbf{Parser} and \textbf{FeatureExtractor} classes have main bl
 \subsection*{Extra Credit}
 Three possible extra credits were available for implementation. In this section I'll explain the implementation details of all 3, the corresponding confusion matrix and overall accuracy.
 
+\subsubsection*{Unsegmented data for training}
+For this extra credit the trickiest part was to figure out how to segment the data on each file. For this I created a new Parser file called \textbf{UnsegmentedDataParser}, what it does is:
+\begin{enumerate}
+\item converts the content of the file into a big matrix
+\item takes the transpose of that matrix
+\item over the transpose of the matrix it iterates over each row and takes the percentage of high energy pixels in it. 
+\item when that percentage is lower than a given threshold and the percentage on the next row is greater than the previous row then that row is chosen as the first real data row (which will be part of the first spectogram). 
+\item once the first row has been chosen, the 80 rows from that point forward are split into 8 sections of size 10. 
+\item the parser also takes the name of the file and splits it to map each 0 or 1 to the 'y' or 'n' label for the corresponding data.
+\end{enumerate}
+
+As for the threshold mentioned before. I decided to use $\frac{23}{25}$ just because it seemed accurate based on the already segmented data we used for Part 2.1. \\
+
+Note that the provided dataset did not include a testing set for this so I decided to use the same testing samples provided for Part 2.1. Which turns out to be convenient to compare the results with the ones obtained previously.\\
+
+As with the previous sections, I tried different smoothing constants but settled with a value of \textbf{2} because it yielded the best accuracy.\\
+I also tried different block group sizes (same sizes as for part 1.2) but they didn't improve the accuracy so I decided to stick with single block features.\\
+
+The maximum accuracy achieved was \textbf{92\%} and this is the confusion matrix obtained:
+
+\begin{center}
+\begin{tabular}{cc|r|r|l}
+\cline{3-4}
+& & \multicolumn{2}{ c| }{Predicted class} \\ \cline{3-4}
+& & yes & no  \\ \cline{1-4}
+\multicolumn{1}{ |c  }{\multirow{2}{*}{Class} } &
+\multicolumn{1}{ |r| }{yes} & 92 & 8    \\ \cline{2-4}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |c| }{no} & 6 & 94  \\ \cline{1-4}
+\end{tabular}
+\captionof{table}{Confusion matrix for Hebrew yes/no data using the unsegmented data.}
+\end{center}
+
+As a final note, the training time was greater than the previous scenarios. It took \textbf{505ms} to train. Which makes sense considering the additional work of figuring out the segmentation and the greater number of examples.
+
 \subsubsection*{Fisher's Linear Discriminant Analysis}
 As suggested, I implemented the Fisher's Linear Discriminant as my second classifier. I understood the theory behind it by following Prof. Veksler\footnote{\url{http://www.csd.uwo.ca/~olga/Courses/CS434a_541a/Lecture8.pdf}} from Western University in Canada. \\
 
