@@ -79,12 +79,12 @@ class NaiveBayesClassifier:
             self.add_to_confusion_matrix(confusion_matrix, label, predicted_label)
 
             highest = self.highest_likely_examples.get(predicted_label, (None, -inf))
-            if likelihood > highest[ 1 ]:
+            if likelihood > highest[ 1 ] and predicted_label == label:
                 self.highest_likely_examples[ predicted_label ] =\
                     (original, likelihood)
 
             lowest = self.lowest_likely_examples.get(predicted_label, (None, inf))
-            if likelihood < lowest[ 1 ]:
+            if likelihood < lowest[ 1 ] and predicted_label == label:
                 self.lowest_likely_examples[ predicted_label ] =\
                     (original, likelihood)
         return (confusion_matrix, correctly_predicted_count / example_count, example_count, feature_count)
