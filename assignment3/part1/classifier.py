@@ -64,7 +64,7 @@ class NaiveBayesClassifier:
 
     def predict(self, features):
         maps = self.MAP(features)
-        return max(maps, key=lambda x:x[ 1 ])
+        return (max(maps, key=lambda x:x[ 1 ])[ 0 ], maps)
 
     def evaluate(self, data):
         correctly_predicted_count = 0
@@ -73,19 +73,20 @@ class NaiveBayesClassifier:
         for (features, label, original) in data:
             feature_count = len(features)
             example_count += 1
-            predicted_label, likelihood = self.predict(features)
+            predicted_label, likelihoods = self.predict(features)
+            likelihood = [ x[ 1 ] for x in likelihoods if x[ 0 ] == label ][ 0 ]
             if predicted_label == label:
                 correctly_predicted_count += 1
             self.add_to_confusion_matrix(confusion_matrix, label, predicted_label)
 
-            highest = self.highest_likely_examples.get(predicted_label, (None, -inf))
-            if likelihood > highest[ 1 ] and predicted_label == label:
-                self.highest_likely_examples[ predicted_label ] =\
+            highest = self.highest_likely_examples.get(label, (None, -inf))
+            if likelihood > highest[ 1 ]:
+                self.highest_likely_examples[ label ] =\
                     (original, likelihood)
 
-            lowest = self.lowest_likely_examples.get(predicted_label, (None, inf))
-            if likelihood < lowest[ 1 ] and predicted_label == label:
-                self.lowest_likely_examples[ predicted_label ] =\
+            lowest = self.lowest_likely_examples.get(label, (None, inf))
+            if likelihood < lowest[ 1 ]:
+                self.lowest_likely_examples[ label ] =\
                     (original, likelihood)
         return (confusion_matrix, correctly_predicted_count / example_count, example_count, feature_count)
 
