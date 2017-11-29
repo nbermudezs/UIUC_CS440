@@ -8,12 +8,14 @@ INF = float('inf')
 
 class PerceptronClassifier:
     def __init__(self,
-                 learning_rate=None,
+                 learning_rate_decay=None,
+                 learning_rate=1000,
                  epochs=100,
                  use_bias=True,
                  zero_weights=True,
                  shuffle=True,
                  n_classes=10):
+        self.learning_rate_decay = learning_rate_decay
         self.learning_rate = learning_rate
         self.epochs = epochs
         self.use_bias = use_bias
@@ -31,7 +33,7 @@ class PerceptronClassifier:
         self.weights = weights = self._init_weights(data)
 
         for epoch in range(self.epochs):
-            alpha = self.learning_rate(epoch)
+            alpha = self.learning_rate_decay(self.learning_rate, epoch)
 
             indices = list(range(len(data)))
             if self.shuffle:
