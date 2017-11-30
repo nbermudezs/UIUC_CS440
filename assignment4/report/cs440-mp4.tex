@@ -229,7 +229,24 @@ The highest accuracy when using these groups was \textbf{81.6\%} which is still 
 
 In this visualizations, the high heat spots represent features that when present are very important to classify an example as the expected class and, in contrast, the lowest spots (scales of blue) indicate features that when present can help determine that an example is NOT of the given class; it doesn't tell anything about the right class, simply says that it may not be an example of a particular class.\\
 
-\textbf{Extra Credit 3 - Differentiable weight update}: \\
+\textbf{Extra Credit 3 - Differentiable weight update}: I decided to use the sigmoid function and apply the weight update from the slides:
+\[ \vec{w} \leftarrow \vec{w} + \alpha (y - f(x))\sigma(\vec{w}\cdot \vec{x})(1 - \sigma(\vec{w}\cdot \vec{x}))\cdot \vec{x} \]
+
+For calculating the $\sigma$ function I used the \textbf{expit} function from SciPy\footnote{\url{https://docs.scipy.org/doc/scipy-0.15.1/reference/generated/scipy.special.expit.html}}. \\
+
+A few things to note from the results obtained using gradient descent:\\
+\begin{enumerate}
+\item The training curve obtained using sigmoid is smoother than the non-differentiable perceptron. This is congruent with intuition because the derivative tells you the "right" way in which to change the weights. Below you will find the training curve for the sigmoid perceptron.
+
+\item The accuracy on the training data is not as high when using sigmoid, compared to the Part 1.1 perceptron.
+\end{enumerate}
+
+\begin{center}
+\includegraphics[scale=0.75]{part1.ec3/sigmoid-constant.png}
+\captionof{figure}{Training curve for the perceptron using $\sigma$.}
+\end{center}
+
+Finally, the best accuracy achived using sigmoid was \textbf{82\%}, close to the best from Part 1.1. Additional experiments were performed trying to increase the accuracy without success. The attempts included increasing the number of epochs (this resulting in a higher accuracy for the training data but not considerable improvement in the test data), different $\alpha$ values and random weights initialization. The respective training curves can be found in the results folder but are not included here for brevity and because nothing more than a comparison was requested. \\
 
 \textbf{Extra Credit 4 - Additional classifiers}: I decided to use scikit-learn\footnote{\url{http://scikit-learn.org/stable/}} to implement an SVM classifier. In particular, I used the SVC method that implements the "one-vs-one" approach instead of the "one-vs-other" implemented in my Perceptron classifier. For reference you can see \href{http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html#sklearn.svm.SVC}{this}. I tried different kernel functions to see how they impacted the accuracy of the model. There are four built-in kernel functions for SVC: rbf, sigmoid, linear and polynomial. \\
 
