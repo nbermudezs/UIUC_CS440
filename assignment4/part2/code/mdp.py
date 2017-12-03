@@ -3,6 +3,8 @@ __email__ = 'nab6@illinois.edu, nestor.bermudezs@gmail.com'
 
 from action import PongAction
 from numpy.random import uniform
+from math import floor
+from numpy import sign
 
 class PongMDP:
     def __init__(self,
@@ -75,6 +77,27 @@ class PongMDP:
             return -1
         return 1
 
+    def as_discrete(self, grid_x=12, grid_y=12):
+        # special case
+        if self.ball_x > self.paddle_x:
+            return (-1, -1, -1, -1, -1)
+
+        # discretize paddle
+        if self.paddle_y == 1 - self.paddle_height:
+            discrete_paddle = 11.
+        else:
+            discrete_paddle = floor(12 * self.paddle_y / (1 - self.paddle_height))
+
+        ball_x = int(floor(self.ball_x * grid_x))
+        ball_y = int(floor(self.ball_y * grid_y))
+        velocity_x = sign(self.velocity_x)
+        if abs(self.velocity_y) < 0.015:
+            velocity_y = 0
+        else:
+            velocity_y = sign(self.velocity_y)
+
+        return (ball_x, ball_y, velocity_x, velocity_y, discrete_paddle)
+
     def is_terminal(self):
         return self.R() == -1
 
@@ -144,3 +167,8 @@ if __name__ == '__main__':
     pong.carry_out(PongAction.STILL)
     assert(pong.ball_y == 0.98)
     assert(pong.velocity_y == -0.03)
+
+    pong = PongMDP(ball_x=0.4, ball_y=0.6,
+                   velocity_x=0.3, velocity_y=0.01,
+                   paddle_y=0.8)
+    assert(pong.as_discrete() == (4, 7, 1, 0, 11))
