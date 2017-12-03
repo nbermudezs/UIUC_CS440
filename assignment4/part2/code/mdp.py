@@ -49,7 +49,15 @@ class PongMDP:
         elif action == PongAction.DOWN:
             self.paddle_y += self.paddle_step
 
-        hit = at_edge and self.ball_y > self.paddle_y and \
+        if self.paddle_y < 0:
+            self.paddle_y = 0
+        elif self.paddle_y > 1 - self.paddle_height:
+            self.paddle_y = 1 - self.paddle_height
+
+        if self.ball_x < self.paddle_x:
+            return 0
+
+        hit = self.ball_y > self.paddle_y and \
             self.ball_y < self.paddle_y + self.paddle_height
 
         if hit:
@@ -58,15 +66,17 @@ class PongMDP:
             V = uniform(-0.03, 0.03)
             self.velocity_x = -self.velocity_x + U
             self.velocity_y += V
-            self.velocity_x = np.sign(self.velocity_x) * \
-                min(abs(self.velocity_x), 0.03)
+            
+            self.velocity_x = sign(self.velocity_x) * \
+                max(abs(self.velocity_x), 0.03)
 
-            if abs(self.velocity_x) >= 1:
-                self.velocity_x = np.sign(self.velocity_x) * 0.97
+            if abs(self.velocity_x) > 1:
+                self.velocity_x = sign(self.velocity_x)
 
-            if abs(self.velocity_y) >= 1:
-                self.velocity_y = np.sign(self.velocity_y) * 0.97
-        return self
+            if abs(self.velocity_y) > 1:
+                self.velocity_y = sign(self.velocity_y)
+            return 1
+        return -1
 
     def R(self):
         if self.ball_x < self.paddle_x:
