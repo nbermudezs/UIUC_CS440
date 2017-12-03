@@ -12,14 +12,34 @@ class Agent:
         self.alpha = alpha
         self.gamma = gamma
         self.f = f
-        self.mdp = PongMDP()
         self.Q = defaultdict(self._build_q)
 
     def _build_q(self):
         return defaultdict(float)
 
     def train(self, iterations):
-        pass
+        for epoch in range(iterations):
+            metrics = self.single_run()
+
+            if epoch % 1000 == 0:
+                self.save(epoch)
 
     def evaluate(self, iterations):
-        pass
+        for epoch in range(iterations):
+            metrics = self.single_run()
+
+    '''
+        Run a single game until agent looses
+    '''
+    def single_run(self):
+        total_hits = 0
+        total_moves = 0
+        self.mdp = PongMDP()
+
+        return (total_moves, total_hits)
+
+    '''
+        Dump into pickled file
+    '''
+    def save(self, epoch):
+        print('Saving model to ../models/run' + str(epoch) + '.model')
