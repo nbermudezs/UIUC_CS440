@@ -4,6 +4,8 @@ __email__ = 'nab6@illinois.edu, nestor.bermudezs@gmail.com'
 from mdp import PongMDP
 from collections import defaultdict
 
+import pickle
+
 class Agent:
     def __init__(self,
                  alpha=None,
@@ -42,4 +44,7 @@ class Agent:
         Dump into pickled file
     '''
     def save(self, epoch):
-        print('Saving model to ../models/run' + str(epoch) + '.model')
+        path = '../models/run' + str(epoch) + '.model'
+        print('Saving model to', path)
+        with open(path, 'wb') as f:
+            pickle.dump(self, f)
