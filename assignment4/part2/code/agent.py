@@ -12,10 +12,12 @@ class Agent:
     def __init__(self,
                  alpha=None,
                  gamma=None,
-                 f=None):
+                 f=None,
+                 mdp=None):
         self.alpha = alpha
         self.gamma = gamma
         self.best_action = f
+        self.mdp = mdp
         self.Q = defaultdict(self._build_q)
         self.N = defaultdict(self._build_q)
 
@@ -26,6 +28,7 @@ class Agent:
         all_hits = []
         means = []
         for epoch in range(iterations):
+            self.mdp = PongMDP()
             metrics = self.single_run()
             all_hits.append(metrics[1])
 
@@ -39,6 +42,7 @@ class Agent:
     def evaluate(self, iterations):
         hits = []
         for epoch in range(iterations):
+            self.mdp = PongMDP()
             metrics = self.single_run(skip_random=True)
             hits.append(metrics[1])
         print('Eval: mean=', np.mean(hits), 'std=', np.std(hits),
@@ -50,7 +54,6 @@ class Agent:
     def single_run(self, skip_random=False):
         total_hits = 0
         total_moves = 0
-        self.mdp = PongMDP()
 
         while True:
             s = self.mdp.as_discrete()
@@ -70,6 +73,10 @@ class Agent:
                 total_hits += 1
         return (total_moves, total_hits)
 
+    def next_action(self):
+        s = self.mdp.as_discrete()
+        action, _ = self.best_action(s, self.Q)
+        return action
 
     '''
         Dump into pickled file
@@ -79,3 +86,5 @@ class Agent:
         print('Saving model to', path)
         with open(path, 'wb') as f:
             pickle.dump(self, f)
+
+QLearningAgent = Agent
