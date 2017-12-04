@@ -42,5 +42,5 @@ if __name__ == '__main__':
         agent = Agent(alpha=inverse_decay,
                       f=best_action,
                       gamma=0.8)
-        agent.train(10000)
+        agent.train(100000)
         metrics = agent.evaluate(10000)
