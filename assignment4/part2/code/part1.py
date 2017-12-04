@@ -22,7 +22,10 @@ def inverse_decay(N_sa, C=5.):
 
 if __name__ == '__main__':
     from agent import Agent
+    from time import time
     import sys
+
+    start = time()
 
     '''
     python part1.py --eval <path> <n_games>
@@ -44,3 +47,4 @@ if __name__ == '__main__':
                       gamma=0.8)
         agent.train(100000)
         metrics = agent.evaluate(10000)
+    print('Finished in ', time() - start, 's')
