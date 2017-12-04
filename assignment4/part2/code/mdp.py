@@ -66,7 +66,7 @@ class PongMDP:
             V = uniform(-0.03, 0.03)
             self.velocity_x = -self.velocity_x + U
             self.velocity_y += V
-            
+
             self.velocity_x = sign(self.velocity_x) * \
                 max(abs(self.velocity_x), 0.03)
 
@@ -94,9 +94,9 @@ class PongMDP:
 
         # discretize paddle
         if self.paddle_y == 1 - self.paddle_height:
-            discrete_paddle = 11.
+            discrete_paddle = grid_y - 1.
         else:
-            discrete_paddle = floor(12 * self.paddle_y / (1 - self.paddle_height))
+            discrete_paddle = floor(grid_y * self.paddle_y / (1 - self.paddle_height))
 
         ball_x = int(floor(self.ball_x * grid_x))
         ball_y = int(floor(self.ball_y * grid_y))
