@@ -14,39 +14,44 @@ class PongMDP:
                  velocity_y=0.01,
                  paddle_height=0.2,
                  paddle_step=0.04,
-                 paddle_y=None):
+                 paddle_y=None,
+                 paddle_y_b=None,
+                 paddle_step_b=0.02,
+                 id_a=None,
+                 id_b=None):
         self.ball_x = ball_x
         self.ball_y = ball_y
         self.velocity_x = velocity_x
         self.velocity_y = velocity_y
         self.paddle_height = paddle_height
         self.paddle_x = 1.
+        self.paddle_x_b = 0.
         self.paddle_y = paddle_y or 0.5 - self.paddle_height / 2.
+        self.paddle_y_b = paddle_y_b or 0.5 - self.paddle_height / 2.
         self.paddle_step = paddle_step
+        self.paddle_step_b = paddle_step_b
+        self.id_a = id_a
+        self.id_b = id_b
 
-    def carry_out(self, action):
-        at_edge = self.ball_x < self.paddle_x and \
-            self.ball_x + self.velocity_x > self.paddle_x
-
+    def carry_out(self, action_a, action_b):
         # Increment ball_x by velocity_x and ball_y by velocity_y.
         self.ball_x += self.velocity_x
         self.ball_y += self.velocity_y
 
+        # player independent
         if self.ball_y < 0:
             self.ball_y = -self.ball_y
             self.velocity_y = -self.velocity_y
 
+        # player independent
         if self.ball_y > 1:
             self.ball_y = 2 - self.ball_y
             self.velocity_y = -self.velocity_y
 
-        if self.ball_x < 0:
-            self.ball_x = -self.ball_x
-            self.velocity_x = -self.velocity_x
-
-        if action == PongAction.UP:
+        # player A paddle
+        if action_a == PongAction.UP:
             self.paddle_y -= self.paddle_step
-        elif action == PongAction.DOWN:
+        elif action_a == PongAction.DOWN:
             self.paddle_y += self.paddle_step
 
         if self.paddle_y < 0:
@@ -54,16 +59,53 @@ class PongMDP:
         elif self.paddle_y > 1 - self.paddle_height:
             self.paddle_y = 1 - self.paddle_height
 
-        if self.ball_x < self.paddle_x:
-            return 0
+        # player B paddle
+        if action_b == PongAction.UP:
+            self.paddle_y_b -= self.paddle_step_b
+        elif action_b == PongAction.DOWN:
+            self.paddle_y_b += self.paddle_step_b
+
+        if self.paddle_y_b < 0:
+            self.paddle_y_b = 0
+        elif self.paddle_y_b > 1 - self.paddle_height:
+            self.paddle_y_b = 1 - self.paddle_height
+
+        # ball in the air = no winner yet
+        if self.ball_x < self.paddle_x and self.ball_x > self.paddle_x_b:
+            return None
+
+        U = uniform(-0.015, 0.015)
+        V = uniform(-0.03, 0.03)
+
+        # player B
+        if self.ball_x < self.paddle_x_b:
+            # check if hit or miss
+            hit = self.ball_y > self.paddle_y_b and \
+                self.ball_y < self.paddle_y_b + self.paddle_height
+            if hit:
+                self.ball_x = 2 * self.paddle_x_b - self.ball_x
+                self.velocity_x = -self.velocity_x + U
+                self.velocity_y += V
+
+                self.velocity_x = sign(self.velocity_x) * \
+                    max(abs(self.velocity_x), 0.03)
+
+                if abs(self.velocity_x) > 1:
+                    self.velocity_x = sign(self.velocity_x)
+
+                if abs(self.velocity_y) > 1:
+                    self.velocity_y = sign(self.velocity_y)
+                # no winner yet
+                return None
+            else:
+                # player B lost = player A wins
+                return self.id_a
 
         hit = self.ball_y > self.paddle_y and \
             self.ball_y < self.paddle_y + self.paddle_height
 
         if hit:
             self.ball_x = 2 * self.paddle_x - self.ball_x
-            U = uniform(-0.015, 0.015)
-            V = uniform(-0.03, 0.03)
             self.velocity_x = -self.velocity_x + U
             self.velocity_y += V
 
@@ -75,8 +117,12 @@ class PongMDP:
 
             if abs(self.velocity_y) > 1:
                 self.velocity_y = sign(self.velocity_y)
-            return 1
-        return -1
+
+            # no winner yet
+            return None
+
+        # if we reached this point user A missed the ball so B wins
+        return self.id_b
 
     def R(self):
         if self.ball_x < self.paddle_x:
@@ -131,14 +177,14 @@ if __name__ == '__main__':
     assert(pong.is_terminal() == False)
 
     # test move paddle up and down
-    pong.carry_out(PongAction.UP)
+    pong.carry_out(PongAction.UP, PongAction.STILL)
     r = pong.R()
     assert(r == 0)
     assert(pong.ball_x == ball_x + v_x)
     assert(pong.ball_y == ball_y + v_y)
     assert(pong.paddle_y == 0.4 - 0.04)
 
-    pong.carry_out(PongAction.DOWN)
+    pong.carry_out(PongAction.DOWN, PongAction.STILL)
     assert(pong.ball_x == ball_x + 2 * v_x)
     assert(pong.ball_y == ball_y + 2 * v_y)
     assert(pong.paddle_y == 0.4)
@@ -160,21 +206,16 @@ if __name__ == '__main__':
     assert(pong.is_terminal() == False)
 
     # test bounces
-    # left
-    pong = PongMDP(ball_x=0.016, velocity_x=-0.02)
-    pong.carry_out(PongAction.STILL)
-    assert(pong.ball_x == 0.004)
-    assert(pong.velocity_x == 0.02)
 
     # top
     pong = PongMDP(ball_y=0.016, velocity_y=-0.02)
-    pong.carry_out(PongAction.STILL)
+    pong.carry_out(PongAction.STILL, PongAction.STILL)
     assert(pong.ball_y == 0.004)
     assert(pong.velocity_y == 0.02)
 
     # bottom
     pong = PongMDP(ball_y=0.99, velocity_y=0.03)
-    pong.carry_out(PongAction.STILL)
+    pong.carry_out(PongAction.STILL, PongAction.STILL)
     assert(pong.ball_y == 0.98)
     assert(pong.velocity_y == -0.03)
 
