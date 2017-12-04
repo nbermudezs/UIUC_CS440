@@ -259,11 +259,120 @@ The following table summarizes the outcome of the different tries:
 Particularly interesting is the fact that a polynomial kernel gives a very bad accuracy while the other ones outperform my Perceptron classifier but not by a large margin.
 
 \section*{Part 2}
+In this assignment we will create agents for the Pong game. First we will develop a trained agent using the Q-learning algorithm to learn a policy to best play the game. In the second part we will develop a second agent that tries to follow the ball as close as possible and we will compare it against the trained agent. \\
+
+The code is structured in the following classes:
+\begin{enumerate}
+\item \textbf{PongMDP}: it receives the initial configuration of the game (ball position and velocity and paddle position), provides methods to discretize the state, find the best action to take given a state and carry out such action.
+\item \textbf{QLearningAgent}: it contains the actual implementation of the Q-learning algorithm. It takes a \textbf{PongMDP} as argument and then provides methods to train and evaluate it. Additionally it implements a \textit{save} method that uses \textbf{pickle}\footnote{\url{https://docs.python.org/3/library/pickle.html}} to create a file that can be later loaded.
+\item \textbf{Util}: to plot training curve
+\item \textbf{Action}: holds an enumeration of the three possible actions available to the agents.
+\end{enumerate}
 
 \subsection*{Part 1.1}
+I tried two different exploration functions: the first was a function of the number of times a particular state-action pair had been seen; I never got it to work properly (the agent never learned anything) so I tried the second option: an $\epsilon$-greedy method taken from Macello Restelli's \href{http://home.deib.polimi.it/restelli/MyWebSite/pdf/rl5.pdf}{lecture notes}.\\
 
-\subsection*{Part 1.2}
+\subsubsection*{Report and justify parameters}
 
-\subsection*{Extra credits}
+My implementation includes the following hyper-parameters:
+\begin{enumerate}
+\item $\epsilon$: a parameter for the exploration function.
+\item \textbf{C}: the parameter for the learning rate decay function $\alpha$ of $N_{sa}$
+\item $\gamma$: the discount factor
+\item \textbf{n}: number of games until convergence.
+\end{enumerate}
+
+The selected values were: $\epsilon=0.05$, \textbf{C}=5, $\gamma=0.8$, \textbf{n}=100,000.\\
+
+The value selected for $\epsilon$ (\textbf{0.05}) for my exploration function was selected based on the discussion on \href{https://stats.stackexchange.com/questions/270618/why-does-q-learning-use-epsilon-greedy-during-testing}{this StackExchange thread}.\\
+
+The number of games was not much of a guess. First I tried 100,000 as recommended by the assignment; with this and the other parameters the performance was good enough. For the sake of experimentation I also tried 230,000 runs. The results can be found in the following sub-section.\\
+
+Finally, the value for \textbf{C} and $\gamma$ were found doing some basic grid search. For \textbf{C} 3 values were tested: 0.1, 1 and 5. The value \textbf{5} was chosen because it caused the average number of catches to increase more rapidly than the other two. For $\gamma$ 4 values were tried: 0.5, 0.4, 0.6, 0.8, in that order. Finally \textbf{0.8} was chosen because it sped up the training.\\
+
+The training reached an average of at least 9 hits after \textbf{26,000} games played.
+
+\subsubsection*{Evaluation results}
+
+Every 1000 iterations I saved the model so that I could later evaluate the performance at different points. The following table summarizes the different evaluation points: 7,000; 26,000; 99,000; 100,000 and 230,000 games played. For evaluation the model was not learning and it would always pick the best Q-value action (no exploration). The evaluation was performed with 10,000 games. 
+
+\begin{center}
+\begin{tabular}{cc|r|r|r|l}
+\cline{3-5}
+& & \multicolumn{3}{ c| }{Metrics} \\ \cline{3-5}
+& & Mean & Max & Min  \\ \cline{1-5}
+\multicolumn{1}{ |c  }{\multirow{5}{*}{\# of games} } &
+\multicolumn{1}{ |l| }{7,000} & 9.7889 & 78 & 1   \\ \cline{2-5}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |l| }{26,000} & 14.5355 & 96 & 1   \\ \cline{2-5}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |l| }{99,000} & 15.0873 & 119 & 1   \\ \cline{2-5}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |l| }{100,000} & 14.4425 & 101 & 1   \\ \cline{2-5}
+\multicolumn{1}{ |c  }{}                        &
+\multicolumn{1}{ |l| }{230,000} & 13.8675 & 94 & 1  \\ \cline{1-5}
+\end{tabular}
+\captionof{table}{Metrics (avg. number of hits) for different number of games during training.}
+\end{center}
+
+The following graph shows the average number of hits while training:
+
+\begin{center}
+\includegraphics[scale=1]{part2.1/hit-avg-over-time-100000.png}
+\captionof{figure}{Avg. hits as the number of games for training increased. x-axis scaled by 1000.}
+\end{center}
+
+\subsubsection*{Discretization}
+To implement the discretization procedure I simply added a new function, \textit{as\_discrete}, to the \textbf{PongMDP} class. The method takes the grid size as an argument. The process itself was simple since all the constraints were given in the assignment. \\
+
+I tried multiple grid sizes over 10,000 games. The grid sizes used were: 8x8, 12x12, 24x24 and 144x144. The training time remained roughly constant at ~32 seconds but the speed at which the avg. number of hits increased was greatly impacted: as the size of the grid grew the increment in the number of hits was slower. The following plots show this.
+
+\begin{multicols}{2}
+\includegraphics[scale=0.5]{part2.1/8x8.png}
+\captionof{figure}{Hits vs \# of games: 8x8.}
+
+\includegraphics[scale=0.5]{part2.1/12x12.png}
+\captionof{figure}{Hits vs \# of games: 12x12.}
+
+\includegraphics[scale=0.5]{part2.1/24x24.png}
+\captionof{figure}{Hits vs \# of games: 24x24.}
+
+\includegraphics[scale=0.5]{part2.1/144x144.png}
+\captionof{figure}{Hits vs \# of games: 144x144.}
+\end{multicols}
+
+Intuitively this makes sense since this is causing the state space to increase and therefore the changes of not having observed an action increase unless the number of games for training is increased.
+
+\subsubsection*{144x144 grid size results}
+Using the grid size 144x144 I trained the agent for 100,000 games and then evaluated it over 10,000 games. During training the maximum average hit was 1.5 even after 100,000 games. During evaluation (exploration turned off) it only achieved 2.5 hits per game on average.
+
+\subsection*{Part 2.2}
+
+\subsubsection*{Implementation changes}
+\begin{enumerate}
+\item Update \textbf{QLearningAgent} to accept as a initialization parameter, that way \textbf{PongMDP} can be constructed outside and shared between the two agents.
+
+\item Add a function \textit{next\_action} to the Agent classes to retrieve the best action without executing it.
+
+\item Add a \textbf{Gameplay} class that instantiates a match between the two agents and determines when one of them have won.
+
+\item The MDP \textit{carry\_out} function now expects two actions. One for each agent. That way it can transition correctly. For this to be possible the state now has an additional element called \textit{paddle\_y\_b} and the MDP also has some other internal variables for the paddle step (0.02) and the x position of the paddle (0). The \textit{carry\_out} function was updated to consider these values, duplicate similar code for bouncing the ball. 
+
+\item The MDP \textit{carry\_out} now returns who the winner was, if there was one in the current move, instead of the reward of the move.
+\end{enumerate}
+
+Note that the discretization process didn't change because it is only used by the \textbf{QLearningAgent} and, for it, there is no difference between the ball bouncing because there is a wall or because it hit the opponent's paddle. Even more, if we see this as a problem to use expected-minimax then the Q-learning agent can assume that that the hardcoded agent will always catch the ball and, therefore behaving like the wall from the viewpoint of the Q-learning agent.\\
+
+Because of this, there is no side-effect if introducing the hard-coded agent.
+
+\subsubsection*{Results}
+I performed the following tests (using the models saved every 1000 games): 
+\begin{enumerate}
+\item agent trained for 2,000 games: It achieved a win rate of \textbf{48\%}
+\item agent trained for 4,000 games: It achieved a win rate of \textbf{62.5\%}
+\item agent trained for 8,000 games: It achieved a win rate of \textbf{92\%}
+\item agent trained for 100,000 games: It achieved a win rate of \textbf{96.78\%}.
+\item agent trained for 230,000 games: It achieved a win rate of \textbf{96.5\%}
+\end{enumerate}
 
 \end{document}
