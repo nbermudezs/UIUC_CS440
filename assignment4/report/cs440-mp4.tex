@@ -322,6 +322,14 @@ The following graph shows the average number of hits while training:
 \captionof{figure}{Avg. hits as the number of games for training increased. x-axis scaled by 1000.}
 \end{center}
 
+Besides the training curve I also captured how the variance of the number of hits changed over time. 
+The results are plotted in the following figure.
+
+\begin{center}
+\includegraphics[scale=1]{part2.1/std.png}
+\captionof{figure}{Avg. hits as the number of games for training increased. x-axis scaled by 1000.}
+\end{center}
+
 \subsubsection*{Discretization}
 To implement the discretization procedure I simply added a new function, \textit{as\_discrete}, to the \textbf{PongMDP} class. The method takes the grid size as an argument. The process itself was simple since all the constraints were given in the assignment. \\
 
