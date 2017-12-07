@@ -27,6 +27,7 @@ class Agent:
     def train(self, iterations):
         all_hits = []
         means = []
+        ratios = []
         for epoch in range(iterations):
             self.mdp = PongMDP()
             metrics = self.single_run()
@@ -34,19 +35,25 @@ class Agent:
 
             if epoch % 1000 == 0:
                 self.save(epoch)
-                means.append(np.mean(all_hits))
-                print('Train: mean=', np.mean(all_hits), 'std=', np.std(all_hits),
-                      'max=', max(all_hits), 'min=', min(all_hits))
+                mean = np.mean(all_hits) or 0
+                std = np.std(all_hits)
+                means.append(mean)
+                ratios.append(std/(mean + 0.00000001))
+                print('Train: mean=', mean, 'std=', std, 'max=', max(all_hits),
+                      'min=', min(all_hits), 'ratio=', std/mean)
         Util.plot_training_curve(means)
+        Util.plot_training_curve(ratios)
 
     def evaluate(self, iterations):
         hits = []
         for epoch in range(iterations):
+            print('game i=', epoch, end='\r')
             self.mdp = PongMDP()
             metrics = self.single_run(skip_random=True)
             hits.append(metrics[1])
         print('Eval: mean=', np.mean(hits), 'std=', np.std(hits),
               'max=', max(hits), 'min=', min(hits))
+        import pdb; pdb.set_trace()
 
     '''
         Run a single game until agent looses
@@ -82,7 +89,7 @@ class Agent:
         Dump into pickled file
     '''
     def save(self, epoch):
-        path = '../models/run2/epoch.' + str(epoch) + '.model'
+        path = '../models/tmp/epoch.' + str(epoch) + '.model'
         print('Saving model to', path)
         with open(path, 'wb') as f:
             pickle.dump(self, f)
