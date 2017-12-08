@@ -61,13 +61,14 @@ class Agent:
     def single_run(self, skip_random=False):
         total_hits = 0
         total_moves = 0
+        last_rand = False
 
         while True:
             s = self.mdp.as_discrete()
-            a, value = self.best_action(s, self.Q, skip_random=skip_random)
+            (a, value), last_rand = self.best_action(s, self.Q, skip_random=skip_random, last_rand=last_rand, f_count=total_moves)
             r = self.mdp.carry_out(a)
             s_prime = self.mdp.as_discrete()
-            _, best = self.best_action(s_prime, self.Q, skip_random=skip_random)
+            (_, best), _ = self.best_action(s_prime, self.Q, skip_random=skip_random,  last_rand=last_rand, f_count=total_moves)
 
             self.N[s][a] += 1
             self.Q[s][a] = value + self.alpha(self.N[s][a]) * (r + self.gamma * best - value)
