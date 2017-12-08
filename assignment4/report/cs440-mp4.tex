@@ -332,7 +332,14 @@ The results are plotted in the following figure.
 
 After talking with TA Ishan I tried different values of \textbf{C} and $\epsilon$ to try to reduce the variance while keeping a good enough accuracy, when using \textbf{C} = 1000 the variance dropped a bit faster but the accuracy would increase way more slowly. Note that the variance even in this case was around 80\%. \\
 
-For the model evaluated to generate the results presented here, out of 10,000 games 8,231 had a number of hits higher than 5 and 6,404 games had a number of higher than 9. 
+For the model evaluated to generate the results presented here, out of 10,000 games 8,231 had a number of hits higher than 5 and 6,404 games had a number of higher than 9. \\
+
+Finally, I tried to use the Antithetic Variate Reduction\footnote{\url{https://en.wikipedia.org/wiki/Antithetic_variates}} technique to try to reduce the variance but the result was similar to changing the value of \textbf{C}: the variance dropped to around 75\% of the mean and remained stable but the mean was too low to meet the requirements of this assignment. The results are shown in the figures below nonetheless.
+
+\begin{center}
+\includegraphics[scale=1]{part2.1/antithetic-std-0-2.png}
+\captionof{figure}{Avg. hits as the number of games for training increased using antithetic variate reduction. x-axis scaled by 1000.}
+\end{center}
 
 \subsubsection*{Discretization}
 To implement the discretization procedure I simply added a new function, \textit{as\_discrete}, to the \textbf{PongMDP} class. The method takes the grid size as an argument. The process itself was simple since all the constraints were given in the assignment. \\
